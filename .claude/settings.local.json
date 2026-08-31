@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"d:\\\\MAGANG IF\\\\web_dashboard_iirc\"; New-Item -ItemType Directory -Force -Path @\\(\"app\\\\\\(public\\)\\\\about\", \"app\\\\\\(public\\)\\\\vision-mission\", \"app\\\\\\(public\\)\\\\services\", \"app\\\\\\(public\\)\\\\events\", \"app\\\\\\(public\\)\\\\gallery\", \"app\\\\\\(public\\)\\\\video-recap\", \"app\\\\\\(public\\)\\\\e-magazine\", \"app\\\\\\(public\\)\\\\contact\", \"app\\\\\\(auth\\)\\\\login\", \"app\\\\\\(auth\\)\\\\register\", \"components\\\\layout\", \"components\\\\sections\", \"components\\\\cards\", \"components\\\\dashboard\", \"components\\\\admin\", \"components\\\\forms\", \"components\\\\modals\", \"providers\", \"data\", \"config\", \"types\", \"lib\"\\) | Out-Null; Write-Host \"Directories created\")"
+    ]
+  }
+}
