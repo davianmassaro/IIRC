@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Rocket, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { partners } from "@/data/partners";
 
 export function CTASection() {
   return (
@@ -97,26 +98,24 @@ export function CTASection() {
 
         {/* Partner/Client logos bar */}
         <div className="mt-16 pt-12 border-t border-white/20">
-          <div className="flex flex-col sm:flex-row items-center gap-6">
-            <div className="flex items-center gap-2 text-white/60 shrink-0">
-              <Building2 className="h-4 w-4" />
-              <span className="text-sm font-medium">Dipercaya oleh</span>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-2.5 text-white/90 shrink-0">
+              <Building2 className="h-5 w-5 text-white/80" />
+              <span className="text-sm font-semibold tracking-wide">Dipercaya oleh</span>
             </div>
-            <div className="flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-3">
-              {[
-                "Bank Mandiri",
-                "Pertamina",
-                "Telkom Indonesia",
-                "BCA",
-                "Astra International",
-                "BNI",
-              ].map((corp) => (
-                <span
-                  key={corp}
-                  className="text-sm font-semibold text-white/50 hover:text-white/80 transition-colors"
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3.5 sm:gap-4">
+              {partners.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="bg-white/95 rounded-xl px-3.5 py-2 shadow-xs flex items-center justify-center hover:scale-105 hover:bg-white transition-all duration-200"
                 >
-                  {corp}
-                </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="h-6 md:h-7 w-auto max-w-[85px] md:max-w-[100px] object-contain"
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -125,3 +124,4 @@ export function CTASection() {
     </section>
   );
 }
+
