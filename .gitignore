@@ -43,6 +43,6 @@ next-env.d.ts
 /lib/generated/prisma
 
 # large media files
-*.mp4
 *.webm
-/public/videos/
+/public/videos/*
+!/public/videos/video-cover.mp4

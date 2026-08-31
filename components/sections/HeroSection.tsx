@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -20,27 +21,48 @@ const stats = [
 ];
 
 export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // Autoplay policy fallback
+      });
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* ── Full-screen background video ── */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="h-full w-full object-cover opacity-50 dark:opacity-60"
-          style={{ minWidth: "100%", minHeight: "100%" }}
+          preload="auto"
+          className="h-full w-full object-cover opacity-45 dark:opacity-50"
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          <source src="/videos/hero-bg.webm" type="video/webm" />
+          <source src="/videos/video-cover.mp4" type="video/mp4" />
         </video>
 
-        {/* Overlay gelap agar teks tetap terbaca */}
-        <div className="absolute inset-0 bg-background/40 dark:bg-background/45" />
+        {/* Brand Purple & Indigo Glow Overlay */}
+        <div
+          className="absolute inset-0 opacity-60 dark:opacity-75"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 15% 30%, oklch(0.58 0.22 292 / 0.4) 0%, transparent 65%), radial-gradient(ellipse 60% 50% at 85% 50%, oklch(0.68 0.18 240 / 0.25) 0%, transparent 60%)",
+          }}
+        />
+
+        {/* Contrast Overlay (gradien lembut agar teks dan aksen ungu tetap terbaca jelas) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-background/20 dark:from-background/90 dark:via-background/55 dark:to-background/25" />
 
         {/* Gradient bawah untuk fade ke section berikutnya */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/60 to-transparent" />
       </div>
 
       {/* Grid dot decoration (di atas video overlay) */}
@@ -54,7 +76,7 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative container mx-auto max-w-7xl px-4 pb-16 pt-32 lg:pt-28">
+      <div className="relative z-10 container mx-auto max-w-7xl px-4 pb-16 pt-32 lg:pt-28">
         <div className="grid min-h-160 items-center gap-14 lg:grid-cols-2">
           {/* Left — Content */}
           <div className="space-y-8">
