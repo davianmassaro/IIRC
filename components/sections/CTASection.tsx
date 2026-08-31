@@ -97,7 +97,7 @@ export function CTASection() {
         </div>
 
         {/* Partner/Client logos bar */}
-        <div className="mt-16 pt-12 border-t border-white/20">
+        <div className="mt-16 pt-10 border-t border-white/15">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2.5 text-white/90 shrink-0">
               <Building2 className="h-5 w-5 text-white/80" />
@@ -107,13 +107,13 @@ export function CTASection() {
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="bg-white/95 rounded-xl px-3.5 py-2 shadow-xs flex items-center justify-center hover:scale-105 hover:bg-white transition-all duration-200"
+                  className="bg-white/95 rounded-xl px-4 py-2.5 shadow-xs flex items-center justify-center hover:scale-105 hover:bg-white transition-all duration-200 border-0"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-6 md:h-7 w-auto max-w-[85px] md:max-w-[100px] object-contain"
+                    className="h-7 md:h-8 w-auto max-w-[95px] md:max-w-[110px] object-contain"
                   />
                 </div>
               ))}

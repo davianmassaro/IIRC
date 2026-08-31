@@ -23,18 +23,18 @@ export function TrustedBySection() {
           </p>
         </div>
 
-        {/* Logo grid - borderless, larger size */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 lg:gap-8 items-center justify-items-center">
+        {/* Logo grid: Clean white cards with near-zero border opacity so dark logos are clearly visible in both dark & light themes */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 lg:gap-6 items-center justify-items-center">
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="flex h-32 w-full items-center justify-center rounded-2xl bg-white/70 dark:bg-card/40 p-4 shadow-sm hover:shadow-md hover:bg-white dark:hover:bg-card/80 transition-all duration-300 hover:scale-105 group"
+              className="flex h-28 md:h-32 w-full items-center justify-center rounded-2xl bg-white dark:bg-white/95 p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.03] group border border-black/[0.03] dark:border-white/10"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-20 md:max-h-24 w-auto max-w-[90%] object-contain transition-transform duration-300"
+                className="max-h-16 md:max-h-20 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           ))}
