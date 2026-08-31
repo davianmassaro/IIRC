@@ -172,24 +172,13 @@ async function main() {
   const magazines = [
     {
       title: "IIRC Journal",
-      edition: "Vol. 3 — Q1 2025",
-      description: "Leadership di Era Disrupsi: Strategi Pemimpin Adaptif Menghadapi Perubahan",
+      edition: "I-Magazine IIRC Vol. 3 2026",
+      description:
+        "Human and Artificial Intelligence for Future Growth. Kolaborasi Teknologi dan Manusia untuk Mendorong Inovasi dan Transformasi Profesional.",
+      cover: "/images/magazines/I-Magazine Vol. 3.png",
+      fileUrl: "/magazines/I-Magazine IIRC Vol. 3 2026.pdf",
       isPublished: true,
-      publishedAt: new Date("2025-03-01"),
-    },
-    {
-      title: "IIRC Journal",
-      edition: "Vol. 2 — Q4 2024",
-      description: "Transformasi Digital HR: Dari Rekrutmen Manual ke AI-Powered Talent Management",
-      isPublished: true,
-      publishedAt: new Date("2024-12-01"),
-    },
-    {
-      title: "IIRC Journal",
-      edition: "Vol. 1 — Q3 2024",
-      description: "ESG Implementation: Panduan Praktis Perusahaan Indonesia Memenuhi Standar Global",
-      isPublished: true,
-      publishedAt: new Date("2024-09-01"),
+      publishedAt: new Date("2026-08-01"),
     },
   ];
 

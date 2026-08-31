@@ -47,3 +47,14 @@ export interface VideoItem {
   embedUrl: string;
   thumbnail?: string;
 }
+
+export interface Magazine {
+  id: string;
+  title: string;
+  edition: string;
+  description?: string;
+  cover?: string;
+  fileUrl?: string;
+  publishedAt: string;
+}
+
