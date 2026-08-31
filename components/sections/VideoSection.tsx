@@ -12,8 +12,12 @@ export function VideoSection() {
   const [displayVideos, setDisplayVideos] = useState<typeof videoItems>([]);
 
   useEffect(() => {
-    const shuffled = [...videoItems].sort(() => 0.5 - Math.random());
-    setDisplayVideos(shuffled);
+    const shuffle = () => {
+      setDisplayVideos([...videoItems].sort(() => 0.5 - Math.random()));
+    };
+    shuffle();
+    const interval = setInterval(shuffle, 8000);
+    return () => clearInterval(interval);
   }, []);
 
   const videosToRender = displayVideos.length > 0 ? displayVideos : videoItems;

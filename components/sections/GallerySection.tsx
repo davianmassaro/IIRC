@@ -12,8 +12,12 @@ export function GallerySection() {
   const [displayItems, setDisplayItems] = useState<typeof galleryItems>([]);
 
   useEffect(() => {
-    const shuffled = [...galleryItems].sort(() => 0.5 - Math.random());
-    setDisplayItems(shuffled.slice(0, 5));
+    const shuffle = () => {
+      setDisplayItems([...galleryItems].sort(() => 0.5 - Math.random()).slice(0, 5));
+    };
+    shuffle();
+    const interval = setInterval(shuffle, 8000);
+    return () => clearInterval(interval);
   }, []);
 
   // Fallback to static order for server render / initial render to avoid layout shift
