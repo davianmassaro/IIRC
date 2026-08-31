@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Play, ArrowRight, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -6,9 +9,16 @@ import { videoItems } from "@/data/videos";
 import { InstagramIcon } from "@/components/ui/social-icons";
 
 export function VideoSection() {
-  const displayVideos = videoItems;
-  const featured = displayVideos[0];
-  const otherVideos = displayVideos.slice(1);
+  const [displayVideos, setDisplayVideos] = useState<typeof videoItems>([]);
+
+  useEffect(() => {
+    const shuffled = [...videoItems].sort(() => 0.5 - Math.random());
+    setDisplayVideos(shuffled);
+  }, []);
+
+  const videosToRender = displayVideos.length > 0 ? displayVideos : videoItems;
+  const featured = videosToRender[0];
+  const otherVideos = videosToRender.slice(1);
 
   return (
     <section className="py-24 iirc-mesh-bg">

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Image as ImageIcon, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -6,7 +9,15 @@ import { galleryItems } from "@/data/gallery";
 import { cn } from "@/lib/utils";
 
 export function GallerySection() {
-  const displayItems = galleryItems.slice(0, 5);
+  const [displayItems, setDisplayItems] = useState<typeof galleryItems>([]);
+
+  useEffect(() => {
+    const shuffled = [...galleryItems].sort(() => 0.5 - Math.random());
+    setDisplayItems(shuffled.slice(0, 5));
+  }, []);
+
+  // Fallback to static order for server render / initial render to avoid layout shift
+  const itemsToRender = displayItems.length > 0 ? displayItems : galleryItems.slice(0, 5);
 
   const getTileClass = (index: number) => {
     switch (index % 5) {
@@ -58,7 +69,7 @@ export function GallerySection() {
 
         {/* Cohesive 5-item Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[220px]">
-          {displayItems.map((item, index) => (
+          {itemsToRender.map((item, index) => (
             <div
               key={item.id}
               className={cn(
