@@ -4,7 +4,7 @@ import { magazines as staticMagazines } from "@/data/magazines";
 import { BookOpen, Download, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "E-Magazine",
+  title: "I-Magazine",
   description: "IIRC Journal — publikasi digital insight kepemimpinan, HR, dan transformasi bisnis.",
 };
 
@@ -35,7 +35,7 @@ export default function EMagazinePage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-2xl space-y-4">
             <Badge className="bg-primary/10 text-primary border-primary/20" variant="outline">
-              E-Magazine
+              I-Magazine
             </Badge>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
               IIRC Journal —{" "}

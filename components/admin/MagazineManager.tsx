@@ -132,7 +132,7 @@ export function MagazineManager({ initialItems }: Props) {
     <>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">E-Magazine</h1>
+          <h1 className="text-2xl font-bold">I-Magazine</h1>
           <p className="text-muted-foreground text-sm mt-0.5">Kelola edisi majalah digital IIRC</p>
         </div>
         <Button onClick={openCreate} className="bg-primary hover:bg-primary/90 gap-2 shrink-0">

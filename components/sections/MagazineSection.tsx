@@ -17,7 +17,7 @@ export function MagazineSection() {
               variant="secondary"
               className="bg-primary/10 text-primary border-primary/20"
             >
-              E-Magazine
+              I-Magazine
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
               IIRC Journal —{" "}

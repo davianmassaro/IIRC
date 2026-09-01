@@ -3,7 +3,7 @@ import { BookOpen, Download, ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "E-Magazine | IIRC",
+  title: "I-Magazine | IIRC",
   description: "Majalah digital IIRC — Corporate Learning Review edisi terbaru.",
 };
 
@@ -30,7 +30,7 @@ export default function MagazinePage() {
             <BookOpen className="h-3.5 w-3.5" />
             Majalah Digital
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">E-Magazine IIRC</h1>
+          <h1 className="text-4xl font-bold tracking-tight">I-Magazine IIRC</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Publikasi berkala IIRC yang membahas tren pengembangan SDM, kepemimpinan, dan transformasi organisasi.
           </p>

@@ -20,7 +20,7 @@ export const publicNav = [
   { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Video Recap", href: "/video-recap" },
-  { label: "E-Magazine", href: "/e-magazine" },
+  { label: "I-Magazine", href: "/e-magazine" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

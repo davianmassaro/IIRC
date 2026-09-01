@@ -28,7 +28,7 @@ const segmentLabels: Record<string, string> = {
   attendance: "Attendance",
   gallery: "Gallery",
   videos: "Videos",
-  magazine: "E-Magazine",
+  magazine: "I-Magazine",
   reports: "Reports",
   users: "Users",
   new: "Tambah Baru",

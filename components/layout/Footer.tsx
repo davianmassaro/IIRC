@@ -22,7 +22,7 @@ const footerLinks = {
   content: [
     { label: "Event Gallery", href: "/gallery" },
     { label: "Video Recap", href: "/video-recap" },
-    { label: "E-Magazine", href: "/e-magazine" },
+    { label: "I-Magazine", href: "/e-magazine" },
   ],
 };
 
