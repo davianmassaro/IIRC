@@ -2,14 +2,14 @@ import type { Magazine } from "@/types";
 
 export const magazines: Magazine[] = [
   {
-    id: "mag-001",
+    id: "mag-003",
     title: "IIRC Journal",
-    edition: "I-Magazine IIRC Vol. 1 Mei 2025",
+    edition: "I-Magazine IIRC Vol. 3 Agustus 2026",
     description:
-      "Transformasi Teknologi. Menyongsong Era Digital dengan Sertifikasi Ganda Human Resources.",
-    cover: "/images/magazines/Vol.1.png",
-    fileUrl: "/magazines/Vol.1.pdf",
-    publishedAt: "2025-05-01",
+      "Human and Artificial Intelligence for Future Growth. Kolaborasi Teknologi dan Manusia untuk Mendorong Inovasi dan Transformasi Profesional.",
+    cover: "/images/magazines/Vol. 3.png",
+    fileUrl: "/magazines/Vol. 3.pdf",
+    publishedAt: "2026-08-01",
   },
   {
     id: "mag-002",
@@ -22,14 +22,14 @@ export const magazines: Magazine[] = [
     publishedAt: "2025-09-01",
   },
   {
-    id: "mag-003",
+    id: "mag-001",
     title: "IIRC Journal",
-    edition: "I-Magazine IIRC Vol. 3 Agustus 2026",
+    edition: "I-Magazine IIRC Vol. 1 Mei 2025",
     description:
-      "Human and Artificial Intelligence for Future Growth. Kolaborasi Teknologi dan Manusia untuk Mendorong Inovasi dan Transformasi Profesional.",
-    cover: "/images/magazines/Vol. 3.png",
-    fileUrl: "/magazines/Vol. 3.pdf",
-    publishedAt: "2026-08-01",
+      "Transformasi Teknologi. Menyongsong Era Digital dengan Sertifikasi Ganda Human Resources.",
+    cover: "/images/magazines/Vol.1.png",
+    fileUrl: "/magazines/Vol.1.pdf",
+    publishedAt: "2025-05-01",
   },
 ];
 

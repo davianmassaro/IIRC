@@ -172,13 +172,13 @@ async function main() {
   const magazines = [
     {
       title: "IIRC Journal",
-      edition: "I-Magazine IIRC Vol. 1 Mei 2025",
+      edition: "I-Magazine IIRC Vol. 3 Agustus 2026",
       description:
-        "Transformasi Teknologi. Menyongsong Era Digital dengan Sertifikasi Ganda Human Resources.",
-      cover: "/images/magazines/Vol.1.png",
-      fileUrl: "/magazines/Vol.1.pdf",
+        "Human and Artificial Intelligence for Future Growth. Kolaborasi Teknologi dan Manusia untuk Mendorong Inovasi dan Transformasi Profesional.",
+      cover: "/images/magazines/Vol. 3.png",
+      fileUrl: "/magazines/Vol. 3.pdf",
       isPublished: true,
-      publishedAt: new Date("2025-05-01"),
+      publishedAt: new Date("2026-08-01"),
     },
     {
       title: "IIRC Journal",
@@ -192,13 +192,13 @@ async function main() {
     },
     {
       title: "IIRC Journal",
-      edition: "I-Magazine IIRC Vol. 3 Agustus 2026",
+      edition: "I-Magazine IIRC Vol. 1 Mei 2025",
       description:
-        "Human and Artificial Intelligence for Future Growth. Kolaborasi Teknologi dan Manusia untuk Mendorong Inovasi dan Transformasi Profesional.",
-      cover: "/images/magazines/Vol. 3.png",
-      fileUrl: "/magazines/Vol. 3.pdf",
+        "Transformasi Teknologi. Menyongsong Era Digital dengan Sertifikasi Ganda Human Resources.",
+      cover: "/images/magazines/Vol.1.png",
+      fileUrl: "/magazines/Vol.1.pdf",
       isPublished: true,
-      publishedAt: new Date("2026-08-01"),
+      publishedAt: new Date("2025-05-01"),
     },
   ];
 
