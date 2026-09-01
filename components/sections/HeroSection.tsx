@@ -44,7 +44,7 @@ export function HeroSection() {
           loop
           playsInline
           preload="auto"
-          className="h-full w-full object-cover opacity-45 dark:opacity-50"
+          className="h-full w-full object-cover opacity-45 dark:opacity-50 scale-105 translate-y-12 lg:translate-y-16"
         >
           <source src="/videos/video-cover.mp4" type="video/mp4" />
         </video>
