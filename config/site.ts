@@ -21,9 +21,9 @@ export const siteConfig = {
     },
   ],
   social: {
-    instagram: "https://instagram.com/iirc.online",
-    linkedin: "https://linkedin.com/company/iirc",
-    youtube: "https://youtube.com/@iirc",
+    instagram: "https://www.instagram.com/iirc.id/?hl=en",
+    linkedin: "https://id.linkedin.com/company/iirc-itsb",
+    youtube: "https://www.youtube.com/@iirc.official",
   },
 } as const;
 
