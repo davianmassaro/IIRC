@@ -76,21 +76,21 @@ const dummyTestimonials = [
     title: "VP HR, PT Astra International",
     quote:
       "Program IIRC sangat impactful! Tim kami mengalami peningkatan kapabilitas nyata dalam mengeksekusi strategi transformasi digital.",
-    rating: 5,
+    rating: "4.9/5",
   },
   {
     name: "Sari Dewi Prasetyo",
     title: "Chief People Officer, Bank Mandiri",
     quote:
       "IIRC membantu kami membangun leadership pipeline yang solid. Kurikulumnya sangat terstruktur dan relevan dengan tantangan industri.",
-    rating: 5,
+    rating: "5.0/5",
   },
   {
     name: "Ahmad Fauzi",
     title: "Director of L&D, Pertamina",
     quote:
       "Kurikulum praktis yang luar biasa! Hasil pembelajaran langsung dapat diterapkan dalam operasional harian perusahaan kami.",
-    rating: 5,
+    rating: "4.9/5",
   },
 ];
 
@@ -126,7 +126,7 @@ export function WhyIIRCSection() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
-            {/* Left Column (Logo, Title, Description, Robot Testimonial Card) */}
+            {/* Left Column (Logo, Title, Description, Testimonial Box) */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
               
               {/* Brand Header */}
@@ -164,81 +164,67 @@ export function WhyIIRCSection() {
                 </p>
               </div>
 
-              {/* 3D Robot Mascot & Testimonial Section */}
-              <div className="relative mt-2 flex flex-col items-center">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-purple-200/80 dark:border-purple-800/40 bg-gradient-to-t from-purple-100/50 to-transparent dark:from-purple-950/40 max-w-sm w-full group">
-                  {/* Robot Mascot Image */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/iirc-mascot.jpg"
-                    alt="IIRC Robot Mascot"
-                    className="w-full h-auto object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                  />
+              {/* Clean Testimonial Box (No Robot Image, No Stars, No 'TESTIMONIAL' Label) */}
+              <div
+                className="relative mt-2 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-purple-100 dark:border-purple-900/40 p-5 sm:p-6 shadow-md hover:shadow-lg transition-all"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+              >
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  {/* Numerical Rating Badge */}
+                  <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-extrabold text-xs px-3 py-1 rounded-full border border-purple-200/50 dark:border-purple-800/40">
+                    {current.rating}
+                  </div>
 
-                  {/* Glassmorphism Testimonial Overlay Box */}
-                  <div
-                    className="absolute bottom-3 left-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-white/70 dark:border-purple-500/30 p-3.5 sm:p-4 rounded-xl shadow-lg transition-all duration-300"
-                    onMouseEnter={() => setPaused(true)}
-                    onMouseLeave={() => setPaused(false)}
-                  >
-                    <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <div className="flex items-center gap-0.5">
-                        {Array.from({ length: current.rating }).map((_, i) => (
-                          <span key={i} className="text-yellow-400 text-xs">
-                            ★
-                          </span>
-                        ))}
-                        <span className="text-[10px] font-bold text-purple-700 dark:text-purple-300 ml-1.5 uppercase tracking-wide">
-                          Testimonial
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={prevTestimonial}
-                          className="h-6 w-6 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors"
-                          aria-label="Previous Testimonial"
-                        >
-                          <ChevronLeft className="h-3 w-3" />
-                        </button>
-                        <button
-                          onClick={nextTestimonial}
-                          className="h-6 w-6 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors"
-                          aria-label="Next Testimonial"
-                        >
-                          <ChevronRight className="h-3 w-3" />
-                        </button>
-                      </div>
-                    </div>
+                  {/* Prev / Next Navigation Arrows */}
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={prevTestimonial}
+                      className="h-7 w-7 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors shadow-xs"
+                      aria-label="Previous Testimonial"
+                    >
+                      <ChevronLeft className="h-3.5 w-3.5" />
+                    </button>
+                    <button
+                      onClick={nextTestimonial}
+                      className="h-7 w-7 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors shadow-xs"
+                      aria-label="Next Testimonial"
+                    >
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </div>
 
-                    <p className="text-xs text-slate-700 dark:text-slate-200 italic leading-relaxed line-clamp-3">
-                      &ldquo;{current.quote}&rdquo;
+                {/* Quote Text */}
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed">
+                  &ldquo;{current.quote}&rdquo;
+                </p>
+
+                {/* Footer: Name, Title & Pagination Dots */}
+                <div className="mt-4 pt-3 border-t border-purple-100 dark:border-purple-900/40 flex items-center justify-between">
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                      {current.name}
+                    </h4>
+                    <p className="text-[11px] sm:text-xs text-purple-700 dark:text-purple-300 font-medium mt-0.5">
+                      {current.title}
                     </p>
-
-                    <div className="mt-2.5 pt-2 border-t border-purple-100 dark:border-purple-900/40 flex items-center justify-between">
-                      <div>
-                        <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
-                          {current.name}
-                        </h4>
-                        <p className="text-[10px] text-purple-700 dark:text-purple-300 font-medium">
-                          {current.title}
-                        </p>
-                      </div>
-                      
-                      <div className="flex gap-1">
-                        {dummyTestimonials.map((_, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setActiveTestimonial(i)}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${
-                              i === activeTestimonial
-                                ? "w-4 bg-purple-600"
-                                : "w-1.5 bg-purple-200 dark:bg-purple-800"
-                            }`}
-                            aria-label={`Go to testimonial ${i + 1}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
+                  </div>
+                  
+                  {/* Dots */}
+                  <div className="flex gap-1.5">
+                    {dummyTestimonials.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveTestimonial(i)}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          i === activeTestimonial
+                            ? "w-5 bg-purple-600 dark:bg-purple-400"
+                            : "w-1.5 bg-purple-200 dark:bg-purple-800"
+                        }`}
+                        aria-label={`Go to testimonial ${i + 1}`}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
