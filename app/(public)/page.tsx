@@ -8,7 +8,6 @@ import { GallerySection } from "@/components/sections/GallerySection";
 import { VideoSection } from "@/components/sections/VideoSection";
 import { MagazineSection } from "@/components/sections/MagazineSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { TrustedBySection } from "@/components/sections/TrustedBySection";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export default function HomePage() {
       <GallerySection />
       <VideoSection />
       <MagazineSection />
-      <TrustedBySection />
       <CTASection />
     </>
   );
