@@ -23,21 +23,23 @@ export function TrustedBySection() {
           </p>
         </div>
 
-        {/* Logo grid: Clean white cards with near-zero border opacity so dark logos are clearly visible in both dark & light themes */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 lg:gap-6 items-center justify-items-center">
-          {partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex h-28 md:h-32 w-full items-center justify-center rounded-2xl bg-white dark:bg-white/95 p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.03] group border border-black/[0.03] dark:border-white/10"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-16 md:max-h-20 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-          ))}
+        {/* Single unified glass border container for all sponsor logos */}
+        <div className="rounded-3xl bg-white/90 dark:bg-white/95 backdrop-blur-xl border border-white/60 dark:border-white/20 p-6 sm:p-8 md:p-10 shadow-xl dark:shadow-2xl dark:shadow-primary/5 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-8 lg:gap-6 items-center justify-items-center">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex h-28 sm:h-32 md:h-36 w-full items-center justify-center p-3 sm:p-4 transition-transform duration-300 hover:scale-105 group/logo"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-24 sm:max-h-28 md:max-h-32 w-auto max-w-[95%] object-contain transition-all duration-300 group-hover/logo:scale-110"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Stats strip */}
