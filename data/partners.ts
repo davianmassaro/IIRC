@@ -32,4 +32,28 @@ export const partners: Partner[] = [
     name: "SAMSEK",
     logo: "/images/trusted-by/SAMSEK.png",
   },
+  {
+    name: "MENTARI",
+    logo: "/images/trusted-by/MENTARI.png",
+  },
+  {
+    name: "BSC",
+    logo: "/images/trusted-by/BSC.png",
+  },
+  {
+    name: "ENGINE",
+    logo: "/images/trusted-by/ENGINE.png",
+  },
+  {
+    name: "VIVA APOTEK",
+    logo: "/images/trusted-by/VIVAAPOTEK.png",
+  },
+  {
+    name: "NANOVEST",
+    logo: "/images/trusted-by/NANOVEST.png",
+  },
+  {
+    name: "EBER",
+    logo: "/images/trusted-by/EBER.png",
+  },
 ];

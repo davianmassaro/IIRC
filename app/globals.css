@@ -508,11 +508,23 @@
   100% { transform: translate(  0px,    0px) scale(1.00); }
 }
 
-@keyframes iirc-blob-4 {
-  0%   { transform: translate(  0px,    0px) scale(1.00); }
-  20%  { transform: translate(-130px,  150px) scale(1.10); }
-  40%  { transform: translate(  40px,  210px) scale(0.92); }
-  60%  { transform: translate( 170px,   80px) scale(1.05); }
-  80%  { transform: translate( 110px, -130px) scale(0.95); }
-  100% { transform: translate(  0px,    0px) scale(1.00); }
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-ltr 30s linear infinite;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
