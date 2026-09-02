@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { EventsSection } from "@/components/sections/EventsSection";
 import { WhyIIRCSection } from "@/components/sections/WhyIIRCSection";
+import { TrainersSection } from "@/components/sections/TrainersSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { VideoSection } from "@/components/sections/VideoSection";
 import { MagazineSection } from "@/components/sections/MagazineSection";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <EventsSection />
       <ServicesSection />
       <WhyIIRCSection />
+      <TrainersSection />
       <GallerySection />
       <VideoSection />
       <MagazineSection />
