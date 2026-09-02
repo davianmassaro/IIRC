@@ -2,113 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Play,
-  Sparkles,
-  Users,
-  Award,
-  Globe,
-} from "lucide-react";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
-const stats = [
-  { value: "500+", label: "Corporate Clients", icon: Users },
-  { value: "10K+", label: "Alumni", icon: Award },
-  { value: "15+", label: "Years Experience", icon: Globe },
-  { value: "200+", label: "Programs Delivered", icon: Sparkles },
-];
-
-const trainersRow1 = [
-  {
-    name: "Steve Jobs",
-    role: "Visionary & Co-Founder",
-    company: "Apple Inc.",
-    specialty: "Innovation & Design",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Elon Musk",
-    role: "CEO & Chief Engineer",
-    company: "Tesla & SpaceX",
-    specialty: "Tech & Moonshot",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Bill Gates",
-    role: "Co-Founder",
-    company: "Microsoft",
-    specialty: "Software & Strategy",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Satya Nadella",
-    role: "Chairman & CEO",
-    company: "Microsoft",
-    specialty: "Cloud & Culture",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Jensen Huang",
-    role: "Founder & CEO",
-    company: "NVIDIA",
-    specialty: "AI & Supercomputing",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Sam Altman",
-    role: "Co-Founder & CEO",
-    company: "OpenAI",
-    specialty: "Generative AI",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=80",
-  },
-];
-
-const trainersRow2 = [
-  {
-    name: "Sundar Pichai",
-    role: "CEO",
-    company: "Alphabet & Google",
-    specialty: "AI Ecosystems",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Indra Nooyi",
-    role: "Former Chairman & CEO",
-    company: "PepsiCo",
-    specialty: "Corporate Governance",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Simon Sinek",
-    role: "Author & Speaker",
-    company: "Optimism Co.",
-    specialty: "Purpose Leadership",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Sheryl Sandberg",
-    role: "Former COO",
-    company: "Meta Platforms",
-    specialty: "Executive Execution",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Jeff Bezos",
-    role: "Founder & Exec Chair",
-    company: "Amazon",
-    specialty: "Customer Scale",
-    image: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Tim Cook",
-    role: "CEO",
-    company: "Apple Inc.",
-    specialty: "Operations & Scale",
-    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop&q=80",
-  },
-];
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -124,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
       {/* ── Full-screen background video ── */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <video
@@ -166,8 +62,8 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 container mx-auto max-w-7xl px-4 pb-16 pt-32 lg:pt-28">
-        <div className="grid min-h-160 items-center gap-14 lg:grid-cols-2">
+      <div className="relative z-10 container mx-auto max-w-7xl px-4 pb-8 pt-32 lg:pt-28 flex flex-col justify-between flex-1">
+        <div className="grid min-h-120 items-center gap-14 lg:grid-cols-2">
           {/* Left — Content */}
           <div className="space-y-8">
             <Badge
@@ -221,117 +117,15 @@ export function HeroSection() {
           <div className="hidden lg:block" />
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-12 grid grid-cols-2 gap-8 border-t border-primary/15 pt-10 md:grid-cols-4">
-          {stats.map(({ value, label, icon: Icon }) => (
-            <div key={label} className="space-y-2 text-center">
-              <div className="flex items-center justify-center gap-2">
-                <Icon className="h-5 w-5 text-primary shrink-0 md:h-6 md:w-6" />
-                <span className="text-3xl font-extrabold leading-none iirc-gradient-text sm:text-4xl md:text-5xl">
-                  {value}
-                </span>
-              </div>
-              <p className="text-sm font-medium leading-snug text-muted-foreground sm:text-base">{label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Yellow Background Trainers Banner (2 Banjar / 2 Rows, Half-Body Cutouts) ── */}
-        <div className="mt-14 rounded-3xl bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-400 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 p-6 sm:p-8 md:p-10 shadow-2xl border border-amber-300/80 text-slate-950 relative overflow-hidden">
-          
-          {/* Decorative Pattern Grid */}
-          <div
-            className="absolute inset-0 opacity-10 pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
+        {/* ── Transparent Background Trainer Image (Full width, no borders, no cards) ── */}
+        <div className="mt-10 w-full flex items-center justify-center relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/trainers.png"
+            alt="IIRC Faculty & Trainers"
+            className="w-full h-auto object-contain max-h-[500px] sm:max-h-[600px] filter drop-shadow-2xl"
           />
-
-          {/* Header inside yellow banner */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-950/15 relative z-10">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-slate-950 shrink-0" />
-                <h3 className="font-extrabold text-slate-950 text-lg sm:text-xl tracking-tight">
-                  World-Class Faculty & Trainers (Draft)
-                </h3>
-              </div>
-              <p className="text-xs sm:text-sm font-semibold text-slate-800">
-                Dipandu oleh tokoh dan pakar terkemuka dunia yang disusun dalam 2 banjar pengajar.
-              </p>
-            </div>
-
-            <span className="bg-slate-950 text-amber-300 border-0 font-bold px-3.5 py-1.5 text-xs rounded-full shadow-sm shrink-0">
-              Draft Trainers Lineup
-            </span>
-          </div>
-
-          {/* 2 Banjar (2 Rows) Grid of Half-Body Portraits */}
-          <div className="space-y-4 relative z-10">
-            {/* Banjar 1 (Row 1) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-              {trainersRow1.map((trainer) => (
-                <div
-                  key={trainer.name}
-                  className="group relative flex flex-col items-center rounded-2xl bg-white/95 dark:bg-slate-950/90 p-2.5 sm:p-3 border border-amber-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  {/* Half-body Portrait (Setengah Badan) */}
-                  <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-2.5 bg-slate-100 border border-slate-200">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={trainer.image}
-                      alt={trainer.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-xs sm:text-sm leading-tight text-center line-clamp-1">
-                    {trainer.name}
-                  </h4>
-                  <p className="text-[10px] sm:text-[11px] font-bold text-amber-700 dark:text-amber-400 text-center leading-tight mt-0.5 line-clamp-1">
-                    {trainer.company}
-                  </p>
-                  <span className="mt-1.5 inline-block text-[9px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-300 px-2 py-0.5 rounded-full line-clamp-1">
-                    {trainer.specialty}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Banjar 2 (Row 2) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-              {trainersRow2.map((trainer) => (
-                <div
-                  key={trainer.name}
-                  className="group relative flex flex-col items-center rounded-2xl bg-white/95 dark:bg-slate-950/90 p-2.5 sm:p-3 border border-amber-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  {/* Half-body Portrait (Setengah Badan) */}
-                  <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-2.5 bg-slate-100 border border-slate-200">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={trainer.image}
-                      alt={trainer.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-xs sm:text-sm leading-tight text-center line-clamp-1">
-                    {trainer.name}
-                  </h4>
-                  <p className="text-[10px] sm:text-[11px] font-bold text-amber-700 dark:text-amber-400 text-center leading-tight mt-0.5 line-clamp-1">
-                    {trainer.company}
-                  </p>
-                  <span className="mt-1.5 inline-block text-[9px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-300 px-2 py-0.5 rounded-full line-clamp-1">
-                    {trainer.specialty}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
-
       </div>
     </section>
   );
