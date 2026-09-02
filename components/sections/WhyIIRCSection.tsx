@@ -1,238 +1,226 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { CheckCircle2, Zap, Shield, Globe, TrendingUp, HeartHandshake, ChevronLeft, ChevronRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import {
+  Cpu,
+  Users,
+  GraduationCap,
+  Puzzle,
+  Handshake,
+  Target,
+  UserCheck,
+  Building2,
+  Rocket,
+  Globe,
+  ChevronRight,
+  Sparkles,
+} from "lucide-react";
 
-const reasons = [
+const features = [
   {
-    icon: Shield,
-    title: "Kurikulum Terstandar",
+    number: "01",
+    icon: Cpu,
+    title: "Focused on Innovation & Emerging Technologies",
     description:
-      "Program kami dirancang berdasarkan standar internasional dan disesuaikan dengan konteks bisnis Indonesia.",
+      "Programs embed technology and AI, with emphasis on digital transformation, automation, and innovation management.",
+    impactIcon: Target,
+    impact:
+      "We prepare your organization for the future with cutting-edge solutions.",
   },
   {
-    icon: Globe,
-    title: "Fasilitator Expert",
+    number: "02",
+    icon: Users,
+    title: "Inclusive Leadership Growth Engine",
     description:
-      "Dipandu oleh praktisi dan akademisi berpengalaman dari industri terkemuka dalam dan luar negeri.",
+      "Helping businesses build future-ready leaders from the inside out while empowering youth, talents, and underserved communities.",
+    impactIcon: UserCheck,
+    impact:
+      "We grow leaders who create impact—inside and outside the organization.",
   },
   {
-    icon: TrendingUp,
-    title: "Hasil Terukur",
+    number: "03",
+    icon: GraduationCap,
+    title: "Academic Rigor Meets Industry Expertise",
     description:
-      "Setiap program dilengkapi dengan assessment dan evaluasi untuk memastikan hasil pembelajaran yang terukur.",
+      "Combining research strength with practical organizational experience—from classroom insight to commercial application, grounded in local challenges with global relevance.",
+    impactIcon: Building2,
+    impact:
+      "We deliver practical, credible, and high-impact learning & solutions.",
   },
   {
-    icon: Zap,
-    title: "Platform Terintegrasi",
+    number: "04",
+    icon: Puzzle,
+    title: "Do-Tank, Not Just Think-Tank",
     description:
-      "Dari registrasi hingga sertifikat, semua dalam satu platform digital yang seamless dan mudah digunakan.",
+      "Prioritizing execution through prototyping, community trials, and practical solutions that create strategic impact.",
+    impactIcon: Rocket,
+    impact:
+      "We turn ideas into action and drive measurable results.",
   },
   {
-    icon: HeartHandshake,
-    title: "Corporate Partnership",
+    number: "05",
+    icon: Handshake,
+    title: "Strong Integrated Ecosystem",
     description:
-      "Program dapat dikustomisasi sesuai kebutuhan spesifik organisasi dengan pendekatan in-house maupun public.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Sertifikasi Diakui",
-    description:
-      "Sertifikat dari IIRC diakui oleh berbagai industri dan lembaga profesional terkemuka.",
-  },
-];
-
-const testimonials = [
-  {
-    rating: 5,
-    quote:
-      "Program IIRC sangat impactful. Tim kami menjadi jauh lebih capable dalam mengeksekusi strategi transformasi digital setelah mengikuti program bersama IIRC.",
-    name: "Rudi Hermawan",
-    title: "VP HR, PT Astra International",
-    initials: "RH",
-    color: "bg-violet-500/20 text-violet-700 dark:text-violet-300",
-  },
-  {
-    rating: 5,
-    quote:
-      "IIRC membantu kami membangun leadership pipeline yang solid. Program Executive Learning-nya sangat relevan dengan tantangan bisnis yang kami hadapi saat ini.",
-    name: "Sari Dewi Prasetyo",
-    title: "Chief People Officer, Bank Mandiri",
-    initials: "SD",
-    color: "bg-blue-500/20 text-blue-700 dark:text-blue-300",
-  },
-  {
-    rating: 5,
-    quote:
-      "Kurikulum yang ditawarkan IIRC benar-benar disesuaikan dengan kebutuhan industri. Peserta kami mendapatkan sertifikasi yang diakui secara internasional.",
-    name: "Ahmad Fauzi",
-    title: "Director of Learning & Development, Pertamina",
-    initials: "AF",
-    color: "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300",
-  },
-  {
-    rating: 5,
-    quote:
-      "Platform digital IIRC sangat memudahkan manajemen training kami. Dari registrasi hingga sertifikat digital, semua terintegrasi dengan baik dan transparan.",
-    name: "Maya Angelina",
-    title: "HR Manager, Telkom Indonesia",
-    initials: "MA",
-    color: "bg-amber-500/20 text-amber-700 dark:text-amber-300",
+      "Having numerous strategic partners and access to real industry cases and solutions.",
+    impactIcon: Globe,
+    impact:
+      "We bring the right network and resources to accelerate your success.",
   },
 ];
 
 export function WhyIIRCSection() {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const goTo = (i: number) => setActive((i + testimonials.length) % testimonials.length);
-  const prev = () => { goTo(active - 1); setPaused(true); };
-  const next = () => { goTo(active + 1); setPaused(true); };
-
-  /* Auto-slide every 4 s; pause while user interacted */
-  useEffect(() => {
-    if (paused) return;
-    intervalRef.current = setInterval(() => {
-      setActive((a) => (a + 1) % testimonials.length);
-    }, 4000);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [paused]);
-
-  /* Resume auto-slide 6 s after user interaction */
-  useEffect(() => {
-    if (!paused) return;
-    const t = setTimeout(() => setPaused(false), 6000);
-    return () => clearTimeout(t);
-  }, [paused]);
-
-  const t = testimonials[active];
-
   return (
-    <section className="py-24 iirc-mesh-bg">
+    <section className="py-16 sm:py-24 bg-background overflow-hidden">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Left — Title + Testimonial slider */}
-          <div className="space-y-6">
-            <Badge
-              variant="secondary"
-              className="border-primary/20 bg-primary/10 text-primary"
-            >
-              Why Choose IIRC
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Platform Pembelajaran{" "}
-              <span className="iirc-gradient-text">yang Anda Butuhkan</span>
-            </h2>
-            <p className="leading-relaxed text-muted-foreground">
-              Selama lebih dari 15 tahun, IIRC telah menjadi mitra terpercaya
-              ratusan perusahaan terkemuka di Indonesia dalam mengembangkan
-              kapabilitas SDM dan mendorong transformasi organisasi yang
-              berkelanjutan.
-            </p>
-
-            {/* Testimonial slider */}
-            <div
-              className="relative"
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
-            >
-              {/* Card */}
-              <div className="iirc-glass-card min-h-48 rounded-2xl p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <span key={i} className="text-yellow-500 text-base">★</span>
-                    ))}
-                  </div>
-                  {/* Nav arrows */}
-                  <div className="flex gap-1 shrink-0">
-                    <button
-                      onClick={prev}
-                      className="flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background/60 hover:bg-muted transition-colors"
-                      aria-label="Previous testimonial"
-                    >
-                      <ChevronLeft className="h-3.5 w-3.5" />
-                    </button>
-                    <button
-                      onClick={next}
-                      className="flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background/60 hover:bg-muted transition-colors"
-                      aria-label="Next testimonial"
-                    >
-                      <ChevronRight className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
+        {/* Main Card Wrapper */}
+        <div className="rounded-3xl bg-gradient-to-br from-violet-50/80 via-white to-purple-50/60 dark:from-slate-900/90 dark:via-purple-950/30 dark:to-slate-900 border border-purple-200/70 dark:border-purple-800/40 p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            
+            {/* Left Column (Logo, Title, Description, Mascot) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+              
+              {/* Brand Header */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/logo-iirc.png"
+                    alt="IIRC Logo"
+                    className="h-10 w-auto object-contain"
+                  />
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
+                {/* Big Title */}
+                <div>
+                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-none">
+                    WHY
+                  </h2>
+                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-purple-700 dark:text-purple-400 leading-tight">
+                    CHOOSE IIRC
+                  </h2>
+                </div>
 
-                <div className="mt-4 flex items-center gap-3">
-                  <div
-                    className={cn(
-                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold",
-                      t.color
-                    )}
-                  >
-                    {t.initials}
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.title}</div>
-                  </div>
+                {/* Tagline */}
+                <div className="flex items-center gap-1.5 text-purple-700 dark:text-purple-400 font-bold text-sm sm:text-base">
+                  <Sparkles className="h-4 w-4 fill-purple-600 text-purple-600 dark:fill-purple-400 dark:text-purple-400 shrink-0" />
+                  <span>The Partner for Impactful Transformation</span>
+                </div>
+
+                {/* Description */}
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                  We combine innovation, expertise, and execution to deliver
+                  learning and solutions that create real value and sustainable
+                  impact for your organization.
+                </p>
+              </div>
+
+              {/* 3D Robot Mascot Graphic */}
+              <div className="relative mt-2 flex items-center justify-center">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-purple-200/80 dark:border-purple-800/40 bg-gradient-to-t from-purple-100/50 to-transparent dark:from-purple-950/40 max-w-sm w-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/iirc-mascot.jpg"
+                    alt="IIRC Robot Mascot"
+                    className="w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
 
-              {/* Pagination dots */}
-              <div className="mt-4 flex items-center gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => { goTo(i); setPaused(true); }}
-                    aria-label={`Testimonial ${i + 1}`}
-                    className={cn(
-                      "h-1.5 rounded-full transition-all duration-300",
-                      i === active ? "w-6 bg-primary" : "w-1.5 bg-primary/25 hover:bg-primary/50"
-                    )}
-                  />
-                ))}
-                {/* Auto-play indicator */}
-                {!paused && (
-                  <div className="ml-auto flex items-center gap-1 text-[10px] text-muted-foreground">
-                    <div className="h-1 w-1 animate-pulse rounded-full bg-primary" />
-                    auto
-                  </div>
+            </div>
+
+            {/* Right Column (Tagline + 5 Rows + Impact Column) */}
+            <div className="lg:col-span-7 flex flex-col space-y-4">
+              
+              {/* Top Banner Tagline */}
+              <div className="flex items-center justify-center gap-2 text-center text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 pb-1">
+                <div className="h-px bg-purple-300 dark:bg-purple-700 flex-1 hidden sm:block" />
+                <div className="flex items-center gap-2 px-2">
+                  <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                  <span>We go beyond training. We deliver transformation.</span>
+                  <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                </div>
+                <div className="h-px bg-purple-300 dark:bg-purple-700 flex-1 hidden sm:block" />
+              </div>
+
+              {/* Impact Column Header Pill */}
+              <div className="flex justify-end pr-1">
+                <div className="bg-purple-800 dark:bg-purple-700 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                  The Impact for You
+                </div>
+              </div>
+
+              {/* 5 Feature Rows */}
+              <div className="space-y-3">
+                {features.map(
+                  ({
+                    number,
+                    icon: Icon,
+                    title,
+                    description,
+                    impactIcon: ImpactIcon,
+                    impact,
+                  }) => (
+                    <div
+                      key={number}
+                      className="flex flex-col md:flex-row items-stretch md:items-center gap-2.5 sm:gap-3"
+                    >
+                      {/* Row Left: Number Badge */}
+                      <div className="flex items-center gap-3 shrink-0">
+                        <div className="bg-purple-900 dark:bg-purple-950 text-white font-black text-sm sm:text-base w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center shadow-md">
+                          {number}
+                        </div>
+                      </div>
+
+                      {/* Main Feature Box */}
+                      <div className="flex-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-purple-100 dark:border-purple-900/40 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 p-2.5 rounded-xl shrink-0 mt-0.5">
+                          <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">
+                            {title}
+                          </h3>
+                          <p className="text-xs sm:text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                            {description}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Chevron Divider */}
+                      <div className="hidden md:flex items-center justify-center shrink-0">
+                        <ChevronRight className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                      </div>
+
+                      {/* Impact Box */}
+                      <div className="w-full md:w-5/12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-purple-100 dark:border-purple-900/40 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all flex items-center gap-3">
+                        <div className="bg-purple-700 text-white p-2 rounded-full shrink-0 flex items-center justify-center h-8 w-8 shadow-xs">
+                          <ImpactIcon className="h-4 w-4" />
+                        </div>
+                        <p className="text-xs text-slate-700 dark:text-slate-200 font-medium leading-snug">
+                          {impact}
+                        </p>
+                      </div>
+                    </div>
+                  )
                 )}
               </div>
+
+              {/* Bottom Banner */}
+              <div className="mt-4 rounded-full bg-gradient-to-r from-purple-800 via-indigo-900 to-purple-900 text-white py-3 px-6 text-center font-semibold text-xs sm:text-sm tracking-wide shadow-lg flex items-center justify-center gap-2">
+                <Sparkles className="h-4 w-4 text-purple-300 shrink-0" />
+                <span>
+                  <strong className="font-extrabold text-white">People</strong> First.{" "}
+                  <strong className="font-extrabold text-white">Impact</strong> Driven.{" "}
+                  <strong className="font-extrabold text-white">Transformation</strong> Together.
+                </span>
+                <Sparkles className="h-4 w-4 text-purple-300 shrink-0" />
+              </div>
+
             </div>
+
           </div>
 
-          {/* Right — Reasons grid */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {reasons.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/30 hover:shadow-md"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                    <Icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="mb-1 text-sm font-semibold">{title}</h3>
-                    <p className="text-xs leading-relaxed text-muted-foreground">
-                      {description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
