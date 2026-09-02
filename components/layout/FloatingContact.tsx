@@ -15,14 +15,14 @@ export function FloatingContact() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact Us via WhatsApp"
-        className="relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-linear-to-r from-primary via-purple-600 to-indigo-600 text-white shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 active:scale-95 transition-all duration-300 border border-white/20"
+        className="relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-purple-600/35 dark:bg-purple-600/25 backdrop-blur-xl text-white shadow-lg shadow-purple-900/20 hover:shadow-xl hover:bg-purple-600/55 hover:scale-105 active:scale-95 transition-all duration-300 border border-white/30 dark:border-white/20"
       >
-        {/* Pulsing background glow */}
-        <span className="absolute -inset-1 rounded-full bg-primary/40 blur-md animate-pulse -z-10 group-hover:bg-primary/60 transition-all" />
+        {/* Pulsing background glow (subtle) */}
+        <span className="absolute -inset-1 rounded-full bg-purple-500/20 blur-md animate-pulse -z-10 group-hover:bg-purple-500/40 transition-all" />
 
-        {/* Person / Phone Icon matching brand purple style */}
-        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-          <PhoneCall className="h-4.5 w-4.5 text-white" />
+        {/* Phone Icon */}
+        <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0">
+          <PhoneCall className="h-4 w-4 text-white" />
         </div>
 
         {/* Text Label */}
