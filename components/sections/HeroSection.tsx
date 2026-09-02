@@ -117,14 +117,18 @@ export function HeroSection() {
           <div className="hidden lg:block" />
         </div>
 
-        {/* ── Transparent Background Trainer Image (Full width, no borders, no cards) ── */}
-        <div className="mt-10 w-full flex items-center justify-center relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/trainers.png"
-            alt="IIRC Faculty & Trainers"
-            className="w-full h-auto object-contain max-h-[500px] sm:max-h-[600px] filter drop-shadow-2xl"
-          />
+        {/* ── Transparent Background Trainer Image (Full width 100vw, edge-to-edge, with bottom gradient fade) ── */}
+        <div className="mt-8 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-none flex items-center justify-center overflow-hidden">
+          <div className="relative w-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/trainers.png"
+              alt="IIRC Faculty & Trainers"
+              className="w-full h-auto object-cover sm:object-contain max-h-[550px] sm:max-h-[650px] lg:max-h-[720px] w-screen"
+            />
+            {/* Gradasi Bawah (Bottom Gradient Fade Overlay) agar tidak terasa kepotong */}
+            <div className="absolute inset-x-0 bottom-0 h-28 sm:h-36 lg:h-48 bg-gradient-to-t from-background via-background/75 to-transparent pointer-events-none" />
+          </div>
         </div>
       </div>
     </section>
