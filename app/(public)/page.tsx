@@ -7,6 +7,7 @@ import { TrainersSection } from "@/components/sections/TrainersSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { VideoSection } from "@/components/sections/VideoSection";
 import { MagazineSection } from "@/components/sections/MagazineSection";
+import { TrustedBySection } from "@/components/sections/TrustedBySection";
 import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/config/site";
 
@@ -26,6 +27,7 @@ export default function HomePage() {
       <GallerySection />
       <VideoSection />
       <MagazineSection />
+      <TrustedBySection />
       <CTASection />
     </>
   );

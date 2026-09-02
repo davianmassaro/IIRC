@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Rocket, Building2 } from "lucide-react";
+import { ArrowRight, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { partners } from "@/data/partners";
 
 export function CTASection() {
   return (
@@ -95,33 +94,7 @@ export function CTASection() {
             ))}
           </div>
         </div>
-
-        {/* Partner/Client logos bar */}
-        <div className="mt-16 pt-10 border-t border-white/15">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2.5 text-white/90 shrink-0">
-              <Building2 className="h-5 w-5 text-white/80" />
-              <span className="text-sm font-semibold tracking-wide">Dipercaya oleh</span>
-            </div>
-            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3.5 sm:gap-4">
-              {partners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="bg-white/95 rounded-xl px-4 py-2.5 shadow-xs flex items-center justify-center hover:scale-105 hover:bg-white transition-all duration-200 border-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="h-7 md:h-8 w-auto max-w-[95px] md:max-w-[110px] object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
 }
-
