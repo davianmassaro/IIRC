@@ -121,8 +121,8 @@ export function WhyIIRCSection() {
   return (
     <section className="py-16 sm:py-24 bg-background overflow-hidden">
       <div className="container mx-auto max-w-7xl px-4">
-        {/* Main Card Wrapper */}
-        <div className="rounded-3xl bg-gradient-to-br from-violet-50/80 via-white to-purple-50/60 dark:from-slate-900/90 dark:via-purple-950/30 dark:to-slate-900 border border-purple-200/70 dark:border-purple-800/40 p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+        {/* Main Card Wrapper with Glass Border */}
+        <div className="rounded-3xl bg-white/40 dark:bg-card/70 backdrop-blur-xl border border-white/50 dark:border-white/20 p-6 sm:p-8 lg:p-10 shadow-2xl dark:shadow-primary/10 relative overflow-hidden">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
@@ -164,15 +164,15 @@ export function WhyIIRCSection() {
                 </p>
               </div>
 
-              {/* Clean Testimonial Box (No Robot Image, No Stars, No 'TESTIMONIAL' Label) */}
+              {/* Clean Testimonial Box with Glass Border */}
               <div
-                className="relative mt-2 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-purple-100 dark:border-purple-900/40 p-5 sm:p-6 shadow-md hover:shadow-lg transition-all"
+                className="relative mt-2 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/50 dark:border-white/20 p-5 sm:p-6 shadow-md hover:shadow-lg transition-all"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
                   {/* Numerical Rating Badge */}
-                  <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-extrabold text-xs px-3 py-1 rounded-full border border-purple-200/50 dark:border-purple-800/40">
+                  <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-extrabold text-xs px-3 py-1 rounded-full border border-white/40 dark:border-white/20">
                     {current.rating}
                   </div>
 
@@ -180,14 +180,14 @@ export function WhyIIRCSection() {
                   <div className="flex items-center gap-1.5">
                     <button
                       onClick={prevTestimonial}
-                      className="h-7 w-7 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors shadow-xs"
+                      className="h-7 w-7 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors shadow-xs border border-white/40 dark:border-white/20"
                       aria-label="Previous Testimonial"
                     >
                       <ChevronLeft className="h-3.5 w-3.5" />
                     </button>
                     <button
                       onClick={nextTestimonial}
-                      className="h-7 w-7 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors shadow-xs"
+                      className="h-7 w-7 rounded-full bg-purple-100 dark:bg-purple-900/60 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-700 dark:text-purple-300 flex items-center justify-center transition-colors shadow-xs border border-white/40 dark:border-white/20"
                       aria-label="Next Testimonial"
                     >
                       <ChevronRight className="h-3.5 w-3.5" />
@@ -201,7 +201,7 @@ export function WhyIIRCSection() {
                 </p>
 
                 {/* Footer: Name, Title & Pagination Dots */}
-                <div className="mt-4 pt-3 border-t border-purple-100 dark:border-purple-900/40 flex items-center justify-between">
+                <div className="mt-4 pt-3 border-t border-slate-200/60 dark:border-white/10 flex items-center justify-between">
                   <div>
                     <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">
                       {current.name}
@@ -236,18 +236,18 @@ export function WhyIIRCSection() {
               
               {/* Top Banner Tagline */}
               <div className="flex items-center justify-center gap-2 text-center text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 pb-1">
-                <div className="h-px bg-purple-300 dark:bg-purple-700 flex-1 hidden sm:block" />
+                <div className="h-px bg-purple-300/60 dark:bg-white/20 flex-1 hidden sm:block" />
                 <div className="flex items-center gap-2 px-2">
                   <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
                   <span>We go beyond training. We deliver transformation.</span>
                   <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
                 </div>
-                <div className="h-px bg-purple-300 dark:bg-purple-700 flex-1 hidden sm:block" />
+                <div className="h-px bg-purple-300/60 dark:bg-white/20 flex-1 hidden sm:block" />
               </div>
 
               {/* Impact Column Header Pill */}
               <div className="flex justify-end pr-1">
-                <div className="bg-purple-800 dark:bg-purple-700 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                <div className="bg-purple-800 dark:bg-purple-700 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md border border-white/20">
                   The Impact for You
                 </div>
               </div>
@@ -269,14 +269,14 @@ export function WhyIIRCSection() {
                     >
                       {/* Row Left: Number Badge */}
                       <div className="flex items-center gap-3 shrink-0">
-                        <div className="bg-purple-900 dark:bg-purple-950 text-white font-black text-sm sm:text-base w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center shadow-md">
+                        <div className="bg-purple-900 dark:bg-purple-950 text-white font-black text-sm sm:text-base w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center shadow-md border border-white/20">
                           {number}
                         </div>
                       </div>
 
-                      {/* Main Feature Box */}
-                      <div className="flex-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-purple-100 dark:border-purple-900/40 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
-                        <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 p-2.5 rounded-xl shrink-0 mt-0.5">
+                      {/* Main Feature Box with Glass Border */}
+                      <div className="flex-1 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-white/50 dark:border-white/20 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-purple-400/50 transition-all flex items-start gap-3">
+                        <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 p-2.5 rounded-xl shrink-0 mt-0.5 border border-white/40 dark:border-white/10">
                           <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                         </div>
                         <div>
@@ -294,9 +294,9 @@ export function WhyIIRCSection() {
                         <ChevronRight className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                       </div>
 
-                      {/* Impact Box */}
-                      <div className="w-full md:w-5/12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-purple-100 dark:border-purple-900/40 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all flex items-center gap-3">
-                        <div className="bg-purple-700 text-white p-2 rounded-full shrink-0 flex items-center justify-center h-8 w-8 shadow-xs">
+                      {/* Impact Box with Glass Border */}
+                      <div className="w-full md:w-5/12 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-white/50 dark:border-white/20 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-purple-400/50 transition-all flex items-center gap-3">
+                        <div className="bg-purple-700 text-white p-2 rounded-full shrink-0 flex items-center justify-center h-8 w-8 shadow-xs border border-white/20">
                           <ImpactIcon className="h-4 w-4" />
                         </div>
                         <p className="text-xs text-slate-700 dark:text-slate-200 font-medium leading-snug">
@@ -309,7 +309,7 @@ export function WhyIIRCSection() {
               </div>
 
               {/* Bottom Banner */}
-              <div className="mt-4 rounded-full bg-gradient-to-r from-purple-800 via-indigo-900 to-purple-900 text-white py-3 px-6 text-center font-semibold text-xs sm:text-sm tracking-wide shadow-lg flex items-center justify-center gap-2">
+              <div className="mt-4 rounded-full bg-gradient-to-r from-purple-800 via-indigo-900 to-purple-900 text-white py-3 px-6 text-center font-semibold text-xs sm:text-sm tracking-wide shadow-lg border border-white/20 flex items-center justify-center gap-2">
                 <Sparkles className="h-4 w-4 text-purple-300 shrink-0" />
                 <span>
                   <strong className="font-extrabold text-white">People</strong> First.{" "}
