@@ -120,15 +120,14 @@ export function EventsSection() {
         el.querySelectorAll("[data-event-card]")
       ) as HTMLElement[];
 
-      const containerCenter =
-        el.getBoundingClientRect().left + el.clientWidth / 2;
+      const containerLeft = el.getBoundingClientRect().left;
 
       let closest = 0;
       let minDist = Infinity;
 
       cards.forEach((card, i) => {
         const rect = card.getBoundingClientRect();
-        const dist = Math.abs(rect.left + rect.width / 2 - containerCenter);
+        const dist = Math.abs(rect.left - containerLeft);
 
         if (dist < minDist) {
           minDist = dist;
@@ -157,15 +156,10 @@ export function EventsSection() {
     const card = cards[index];
     if (!card) return;
 
-    const cardCenter =
-      card.getBoundingClientRect().left + card.getBoundingClientRect().width / 2;
-
-    const containerCenter =
-      el.getBoundingClientRect().left + el.clientWidth / 2;
-
-    el.scrollBy({
-      left: cardCenter - containerCenter,
+    card.scrollIntoView({
       behavior: "smooth",
+      block: "nearest",
+      inline: "start",
     });
 
     setActive(index);
@@ -241,68 +235,46 @@ export function EventsSection() {
       </div>
 
       {/* Carousel */}
-      <div className="relative">
-        <button
-          onClick={prev}
-          disabled={active === 0}
-          className={cn(
-            "absolute left-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-lg transition-all hover:border-primary/40 hover:bg-card/80 disabled:pointer-events-none disabled:opacity-30 sm:left-8"
-          )}
-          aria-label="Previous"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
+      <div className="relative container mx-auto max-w-7xl px-4">
+        {/* Navigation Arrows */}
+        <div className="flex items-center justify-end gap-2 mb-4">
+          <button
+            onClick={prev}
+            disabled={active === 0}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-md transition-all hover:border-primary/40 hover:bg-card/80 disabled:pointer-events-none disabled:opacity-30"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={next}
+            disabled={active === displayEvents.length - 1}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-md transition-all hover:border-primary/40 hover:bg-card/80 disabled:pointer-events-none disabled:opacity-30"
+            aria-label="Next"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
 
-        <button
-          onClick={next}
-          disabled={active === events.length - 1}
-          className={cn(
-            "absolute right-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-lg transition-all hover:border-primary/40 hover:bg-card/80 disabled:pointer-events-none disabled:opacity-30 sm:right-8"
-          )}
-          aria-label="Next"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-background to-transparent" />
-
+        {/* Scroll Container — Left Aligned */}
         <div
           ref={scrollRef}
-          className="flex gap-5 overflow-x-auto scrollbar-none pb-4"
-          style={{ scrollSnapType: "x mandatory" }}
+          className="flex gap-6 overflow-x-auto scrollbar-none pb-4 pt-1 snap-x snap-mandatory"
         >
-          <div
-            className="shrink-0"
-            aria-hidden
-            style={{ width: "max(1rem, calc(50vw - 11rem))" }}
-          />
-
           {displayEvents.map((event, i) => (
             <div
               key={event.id}
               data-event-card
-              style={{ scrollSnapAlign: "center" }}
-              className={cn(
-                "shrink-0 cursor-pointer transition-all duration-300",
-                i === active
-                  ? "w-80 opacity-100 scale-100"
-                  : "w-72 opacity-60 scale-[0.94]"
-              )}
+              style={{ scrollSnapAlign: "start" }}
+              className="shrink-0 w-[280px] sm:w-[320px] cursor-pointer transition-all duration-300 snap-start"
               onClick={() => scrollToCard(i)}
             >
-              {/* waNumber diteruskan ke EventCard agar tombol Daftar membuka WhatsApp */}
               <EventCard event={event} waNumber={WA_NUMBER} />
             </div>
           ))}
-
-          <div
-            className="shrink-0"
-            aria-hidden
-            style={{ width: "max(1rem, calc(50vw - 11rem))" }}
-          />
         </div>
 
+        {/* Dots Indicator */}
         <div className="mt-6 flex items-center justify-center gap-2">
           {displayEvents.map((_, i) => (
             <button

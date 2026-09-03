@@ -85,11 +85,11 @@ export function EventCard({ event, variant = "default", waNumber }: EventCardPro
         variant === "featured" && "md:flex"
       )}
     >
-      {/* Thumbnail */}
+      {/* Thumbnail — Portrait aspect ratio */}
       <div
         className={cn(
-          "relative bg-linear-to-br from-primary/20 to-primary/5 overflow-hidden",
-          variant === "featured" ? "md:w-64 md:h-auto h-48" : "h-48"
+          "relative bg-gradient-to-br from-primary/20 to-primary/5 overflow-hidden w-full aspect-[3/4]",
+          variant === "featured" && "md:w-64 md:aspect-auto"
         )}
       >
         {event.thumbnail ? (
