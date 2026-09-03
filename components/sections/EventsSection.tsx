@@ -120,14 +120,15 @@ export function EventsSection() {
         el.querySelectorAll("[data-event-card]")
       ) as HTMLElement[];
 
-      const containerLeft = el.getBoundingClientRect().left;
+      const containerCenter =
+        el.getBoundingClientRect().left + el.clientWidth / 2;
 
       let closest = 0;
       let minDist = Infinity;
 
       cards.forEach((card, i) => {
         const rect = card.getBoundingClientRect();
-        const dist = Math.abs(rect.left - containerLeft);
+        const dist = Math.abs(rect.left + rect.width / 2 - containerCenter);
 
         if (dist < minDist) {
           minDist = dist;
@@ -156,10 +157,15 @@ export function EventsSection() {
     const card = cards[index];
     if (!card) return;
 
-    card.scrollIntoView({
+    const cardCenter =
+      card.getBoundingClientRect().left + card.getBoundingClientRect().width / 2;
+
+    const containerCenter =
+      el.getBoundingClientRect().left + el.clientWidth / 2;
+
+    el.scrollBy({
+      left: cardCenter - containerCenter,
       behavior: "smooth",
-      block: "nearest",
-      inline: "start",
     });
 
     setActive(index);
@@ -234,48 +240,74 @@ export function EventsSection() {
         </div>
       </div>
 
-      {/* Carousel */}
-      <div className="relative container mx-auto max-w-7xl px-4">
-        {/* Navigation Arrows */}
-        <div className="flex items-center justify-end gap-2 mb-4">
-          <button
-            onClick={prev}
-            disabled={active === 0}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-md transition-all hover:border-primary/40 hover:bg-card/80 disabled:pointer-events-none disabled:opacity-30"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={next}
-            disabled={active === displayEvents.length - 1}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-md transition-all hover:border-primary/40 hover:bg-card/80 disabled:pointer-events-none disabled:opacity-30"
-            aria-label="Next"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </div>
+      {/* Carousel with Active Card Highlight */}
+      <div className="relative">
+        {/* Floating Navigation Arrows */}
+        <button
+          onClick={prev}
+          disabled={active === 0}
+          className={cn(
+            "absolute left-4 sm:left-8 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-card/90 shadow-xl backdrop-blur-md transition-all hover:border-primary/40 hover:bg-card hover:scale-110 disabled:pointer-events-none disabled:opacity-20"
+          )}
+          aria-label="Previous"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
 
-        {/* Scroll Container — Left Aligned */}
+        <button
+          onClick={next}
+          disabled={active === displayEvents.length - 1}
+          className={cn(
+            "absolute right-4 sm:right-8 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-card/90 shadow-xl backdrop-blur-md transition-all hover:border-primary/40 hover:bg-card hover:scale-110 disabled:pointer-events-none disabled:opacity-20"
+          )}
+          aria-label="Next"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+
+        {/* Subtle Fade Edges */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-background via-background/60 to-transparent" />
+
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-none pb-4 pt-1 snap-x snap-mandatory"
+          className="flex gap-6 overflow-x-auto scrollbar-none py-6 items-center"
+          style={{ scrollSnapType: "x mandatory" }}
         >
+          {/* Left Spacing Spacer */}
+          <div
+            className="shrink-0"
+            aria-hidden
+            style={{ width: "max(1rem, calc(50vw - 11rem))" }}
+          />
+
           {displayEvents.map((event, i) => (
             <div
               key={event.id}
               data-event-card
-              style={{ scrollSnapAlign: "start" }}
-              className="shrink-0 w-[280px] sm:w-[320px] cursor-pointer transition-all duration-300 snap-start"
+              style={{ scrollSnapAlign: "center" }}
+              className={cn(
+                "shrink-0 cursor-pointer transition-all duration-500",
+                i === active
+                  ? "w-80 sm:w-84 opacity-100 scale-100 z-10 shadow-2xl ring-2 ring-primary/40 rounded-2xl"
+                  : "w-72 sm:w-76 opacity-50 scale-90 hover:opacity-80"
+              )}
               onClick={() => scrollToCard(i)}
             >
               <EventCard event={event} waNumber={WA_NUMBER} />
             </div>
           ))}
+
+          {/* Right Spacing Spacer */}
+          <div
+            className="shrink-0"
+            aria-hidden
+            style={{ width: "max(1rem, calc(50vw - 11rem))" }}
+          />
         </div>
 
         {/* Dots Indicator */}
-        <div className="mt-6 flex items-center justify-center gap-2">
+        <div className="mt-4 flex items-center justify-center gap-2">
           {displayEvents.map((_, i) => (
             <button
               key={i}
