@@ -24,19 +24,19 @@ export function TrainersSection() {
             Instruktur dan praktisi eksekutif global yang menginspirasi standar kurikulum serta program pelatihan di IIRC.
           </p>
         </div>
+      </div>
 
-        {/* Full-width universal flex image with bottom gradient fade */}
-        <div className="w-full flex items-center justify-center overflow-hidden">
-          <div className="relative w-full flex justify-center items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/trainers.png"
-              alt="IIRC Faculty & Trainers"
-              className="w-full h-auto object-cover min-w-full"
-            />
-            {/* Gradasi Bawah (Bottom Gradient Fade Overlay) agar menyatu dengan background */}
-            <div className="absolute inset-x-0 bottom-0 h-24 sm:h-36 lg:h-52 bg-gradient-to-t from-background via-background/75 to-transparent pointer-events-none" />
-          </div>
+      {/* Fluid Full-Width Flex 100% Trainer Image (Edge-to-Edge, Universal for all screens) */}
+      <div className="w-full mt-8 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full flex justify-center items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/trainers.png"
+            alt="IIRC Faculty & Trainers"
+            className="w-full h-auto object-cover min-w-full"
+          />
+          {/* Gradasi Bawah (Bottom Gradient Fade Overlay) agar menyatu dengan background */}
+          <div className="absolute inset-x-0 bottom-0 h-24 sm:h-36 lg:h-56 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
         </div>
       </div>
     </section>
