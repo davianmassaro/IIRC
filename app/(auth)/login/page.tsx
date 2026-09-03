@@ -93,17 +93,17 @@ export default function LoginPage() {
 
         <div className="relative grid grid-cols-2 gap-3">
           {[
-            { value: "500+", label: "Corporate Clients" },
-            { value: "10K+", label: "Alumni" },
-            { value: "200+", label: "Programs" },
-            { value: "4.9/5", label: "Rating" },
-          ].map((stat) => (
+            { title: "Talent Development", sub: "Leadership & Certification" },
+            { title: "HR One Stop Solution", sub: "Assessment & Consulting" },
+            { title: "Innovation & Events", sub: "Research & Programs" },
+            { title: "Creative & Digital", sub: "Branding & Media" },
+          ].map((item) => (
             <div
-              key={stat.label}
+              key={item.title}
               className="bg-white/10 border border-white/20 rounded-xl p-4"
             >
-              <div className="text-2xl font-bold text-white">{stat.value}</div>
-              <div className="text-xs text-white/60">{stat.label}</div>
+              <div className="text-sm font-bold text-white">{item.title}</div>
+              <div className="text-xs text-white/60 mt-0.5">{item.sub}</div>
             </div>
           ))}
         </div>

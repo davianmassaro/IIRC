@@ -49,24 +49,10 @@ export function TrustedBySection() {
             ))}
           </div>
         </div>
-
-        {/* Stats strip */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 border-t border-border/60 pt-12">
-          {[
-            { value: "500+", label: "Corporate Clients" },
-            { value: "50+", label: "Industries Served" },
-            { value: "15+", label: "Years of Partnership" },
-            { value: "10K+", label: "Professionals Trained" },
-          ].map(({ value, label }) => (
-            <div key={label} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold iirc-gradient-text">{value}</div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">{label}</div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
+
 
 
