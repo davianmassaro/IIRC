@@ -1,7 +1,6 @@
 export const publicNav = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Vision & Mission", href: "/vision-mission" },
+  { label: "About Us", href: "/about" },
   {
     label: "Services",
     href: "/services",

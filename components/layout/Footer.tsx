@@ -7,8 +7,7 @@ import { Separator } from "@/components/ui/separator";
 const footerLinks = {
   platform: [
     { label: "Home", href: "/" },
-    { label: "About IIRC", href: "/about" },
-    { label: "Vision & Mission", href: "/vision-mission" },
+    { label: "About Us", href: "/about" },
     { label: "Events & Programs", href: "/events" },
     { label: "Contact", href: "/contact" },
   ],
