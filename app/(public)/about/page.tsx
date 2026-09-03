@@ -11,15 +11,6 @@ export const metadata: Metadata = {
     "ITSB Innovation & Research Centre (IIRC) — integrated learning, research, and innovation ecosystem. Visi, misi, dan nilai-nilai kami.",
 };
 
-const milestones = [
-  { year: "2009", title: "Berdiri", desc: "IIRC didirikan sebagai lembaga pelatihan korporat terkemuka di Jakarta." },
-  { year: "2012", title: "Ekspansi Nasional", desc: "Membuka layanan ke seluruh Indonesia dengan 100+ klien korporat pertama." },
-  { year: "2016", title: "Sertifikasi Internasional", desc: "Meluncurkan program sertifikasi terakreditasi internasional pertama." },
-  { year: "2019", title: "Digital Platform", desc: "Membangun platform digital learning pertama terintegrasi event management." },
-  { year: "2022", title: "AI & ESG Focus", desc: "Meluncurkan program khusus AI, digital transformation, dan ESG leadership." },
-  { year: "2025", title: "Platform Terintegrasi", desc: "Meluncurkan platform digital ekosistem terpadu dengan payment & QR attendance." },
-];
-
 const values = [
   { icon: Users,      title: "People First",   desc: "We develop people to reach their potential" },
   { icon: TrendingUp, title: "Impact Driven",  desc: "We focus on outcomes that create value" },
@@ -113,25 +104,6 @@ export default function AboutPage() {
                 Explore Programs <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats ── */}
-      <section className="py-16 bg-background border-y border-border/50">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { value: "500+", label: "Corporate Clients" },
-              { value: "10K+", label: "Program Alumni" },
-              { value: "200+", label: "Programs Delivered" },
-              { value: "4.9/5", label: "Rata-rata Rating" },
-            ].map((stat) => (
-              <div key={stat.label} className="iirc-glass-card rounded-2xl p-6 text-center space-y-2">
-                <div className="text-4xl font-bold iirc-gradient-text">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -312,42 +284,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Journey / Milestones ── */}
-      <section className="py-24 iirc-mesh-bg">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center space-y-3 mb-16">
-            <Badge className="bg-primary/10 text-primary border-primary/20" variant="outline">
-              Our Journey
-            </Badge>
-            <h2 className="text-3xl font-bold">
-              Perjalanan <span className="iirc-gradient-text">15 Tahun</span>
-            </h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
-            <div className="space-y-8">
-              {milestones.map((m, i) => (
-                <div
-                  key={m.year}
-                  className={`flex flex-col md:flex-row gap-6 items-center ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                >
-                  <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                    <div className="iirc-glass-card rounded-xl p-5 inline-block max-w-sm">
-                      <div className="font-bold text-primary mb-1">{m.year}</div>
-                      <div className="font-semibold mb-1">{m.title}</div>
-                      <div className="text-sm text-muted-foreground">{m.desc}</div>
-                    </div>
-                  </div>
-                  <div className="w-4 h-4 rounded-full bg-primary border-4 border-background shadow-md shrink-0 relative z-10" />
-                  <div className="flex-1 hidden md:block" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CTASection />
     </>
   );
 }
+
