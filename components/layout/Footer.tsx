@@ -12,11 +12,10 @@ const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   services: [
-    { label: "Corporate Training", href: "/services#corporate-training" },
-    { label: "Public Program", href: "/services#public-program" },
-    { label: "Certification Program", href: "/services#certification" },
-    { label: "Leadership Development", href: "/services#leadership" },
-    { label: "AI & Digital Transformation", href: "/services#ai-digital" },
+    { label: "Talent Development Center", href: "/services#talent" },
+    { label: "HR One Stop Solution", href: "/services#hr" },
+    { label: "Innovation & Event Management", href: "/services#innovation" },
+    { label: "Creative & Digital Center", href: "/services#creative" },
   ],
   content: [
     { label: "Event Gallery", href: "/gallery" },

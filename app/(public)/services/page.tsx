@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 import {
-  Building2, Users, Award, Crown, Leaf, Bot, Briefcase, LineChart, Calendar,
+  GraduationCap, Users, Lightbulb, Palette,
   CheckCircle2, ArrowRight,
 } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
@@ -11,11 +11,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Layanan lengkap IIRC: corporate training, certification, leadership, AI transformation, ESG, dan consulting.",
+  description: "Ekosistem Layanan Korporat Terpadu IIRC: Talent Development, HR One Stop Solution, Innovation & Event, Creative & Digital.",
 };
 
 const iconMap: Record<string, React.ElementType> = {
-  Building2, Users, Award, Crown, Leaf, Bot, Briefcase, LineChart, Calendar,
+  GraduationCap, Users, Lightbulb, Palette,
 };
 
 const colorMap: Record<string, { bg: string; text: string; border: string }> = {
