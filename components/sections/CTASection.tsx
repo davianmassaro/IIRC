@@ -1,6 +1,29 @@
 import Link from "next/link";
-import { ArrowRight, Rocket } from "lucide-react";
+import { ArrowRight, Rocket, GraduationCap, Users, Lightbulb, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const serviceCards = [
+  {
+    icon: GraduationCap,
+    title: "Talent Development",
+    sub: "Leadership & Executive Education",
+  },
+  {
+    icon: Users,
+    title: "HR One Stop Solution",
+    sub: "Assessment & HR Strategy",
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovation & Events",
+    sub: "Research & Innovation Programs",
+  },
+  {
+    icon: Palette,
+    title: "Creative & Digital",
+    sub: "Branding & Content Production",
+  },
+];
 
 export function CTASection() {
   return (
@@ -42,9 +65,7 @@ export function CTASection() {
               <span className="block opacity-90">Organisasi Anda?</span>
             </h2>
             <p className="text-white/75 text-lg leading-relaxed max-w-lg">
-              Bergabunglah dengan 500+ perusahaan terkemuka yang telah
-              mempercayakan pengembangan SDM mereka kepada IIRC. Mulai
-              perjalanan transformasi Anda sekarang.
+              Tingkatkan kapabilitas SDM dan percepat pertumbuhan bisnis organisasi Anda bersama IIRC. Mulai perjalanan transformasi Anda sekarang.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -71,30 +92,31 @@ export function CTASection() {
             </div>
           </div>
 
-          {/* Right — Stats */}
+          {/* Right — 4 Service Cards */}
           <div className="grid grid-cols-2 gap-4">
-            {[
-              { value: "500+", label: "Corporate Clients", sub: "Dari berbagai industri" },
-              { value: "10K+", label: "Alumni", sub: "Profesional bersertifikat" },
-              { value: "4.9/5", label: "Rating Program", sub: "Kepuasan peserta" },
-              { value: "15+", label: "Tahun Pengalaman", sub: "Memimpin industri" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white/10 border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-colors"
-              >
-                <div className="text-3xl font-bold text-white mb-1">
-                  {stat.value}
+            {serviceCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={card.title}
+                  className="bg-white/10 border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-all group cursor-pointer"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="text-base font-bold text-white mb-0.5">
+                    {card.title}
+                  </div>
+                  <div className="text-xs text-white/70 leading-relaxed">
+                    {card.sub}
+                  </div>
                 </div>
-                <div className="text-sm font-semibold text-white/90">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-white/60 mt-0.5">{stat.sub}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
