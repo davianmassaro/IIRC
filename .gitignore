@@ -46,3 +46,4 @@ next-env.d.ts
 *.webm
 /public/videos/*
 !/public/videos/video-cover.mp4
+!/public/videos/VideoProfil.mp4

@@ -2,9 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -32,7 +31,7 @@ export function HeroSection() {
           preload="auto"
           className="h-full w-full object-cover opacity-45 dark:opacity-50 scale-105 translate-y-12 lg:translate-y-16"
         >
-          <source src="/videos/video-cover.mp4" type="video/mp4" />
+          <source src="/videos/VideoProfil.mp4" type="video/mp4" />
         </video>
 
         {/* Brand Purple & Indigo Glow Overlay */}
@@ -66,14 +65,6 @@ export function HeroSection() {
         <div className="grid min-h-120 items-center gap-14 lg:grid-cols-2">
           {/* Left — Content */}
           <div className="space-y-8">
-            <Badge
-              variant="secondary"
-              className="gap-2 border-primary/20 bg-primary/10 px-4 py-1.5 text-primary"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              AI-Powered Corporate Learning Platform
-            </Badge>
-
             <div className="space-y-5">
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
                 Transform Your
