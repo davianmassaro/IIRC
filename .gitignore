@@ -47,3 +47,4 @@ next-env.d.ts
 /public/videos/*
 !/public/videos/video-cover.mp4
 !/public/videos/VideoProfil.mp4
+!/public/videos/videoprofil.mp4
