@@ -105,7 +105,7 @@ export function HeroSection() {
               </Button>
             </div>
           </div>
-
+        </div>
       </div>
 
       {/* ── Fluid Full-Width Flex 100% Trainer Image (Edge-to-Edge, Universal for all screens) ── */}
