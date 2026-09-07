@@ -8,13 +8,10 @@ import { Search, Filter } from "lucide-react";
 
 const categories = [
   "Semua",
-  "Leadership Development",
-  "AI & Digital Transformation",
-  "ESG & Sustainability",
-  "Certification Program",
-  "Executive Learning",
-  "Public Program",
-  "Corporate Training",
+  "Talent Development",
+  "HR One Stop Solution",
+  "Innovation & Events",
+  "Creative & Digital",
 ];
 
 interface EventsCatalogProps {
@@ -33,9 +30,20 @@ export function EventsCatalog({ initialEvents = [] }: EventsCatalogProps) {
       (event.shortDesc && event.shortDesc.toLowerCase().includes(search.toLowerCase())) ||
       (event.tags && event.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase())));
 
+    const catLower = event.category.toLowerCase();
+    const selectedLower = selectedCategory.toLowerCase();
+
     const matchesCategory =
       selectedCategory === "Semua" ||
-      event.category.toLowerCase() === selectedCategory.toLowerCase();
+      catLower === selectedLower ||
+      (selectedCategory === "Talent Development" &&
+        (catLower.includes("talent") || catLower.includes("leadership") || catLower.includes("executive"))) ||
+      (selectedCategory === "HR One Stop Solution" &&
+        (catLower.includes("hr") || catLower.includes("bootcamp") || catLower.includes("esg") || catLower.includes("solution"))) ||
+      (selectedCategory === "Innovation & Events" &&
+        (catLower.includes("innovation") || catLower.includes("ai") || catLower.includes("digital") || catLower.includes("event"))) ||
+      (selectedCategory === "Creative & Digital" &&
+        (catLower.includes("creative") || catLower.includes("digital") || catLower.includes("branding")));
 
     return matchesSearch && matchesCategory;
   });
