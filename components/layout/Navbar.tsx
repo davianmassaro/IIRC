@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ChevronDown, LogIn } from "lucide-react";
+import { ChevronDown, LogIn, GraduationCap, Users, Lightbulb, Palette } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +13,28 @@ import { ThemeToggle } from "./ThemeToggle";
 import { MobileNav } from "./MobileNav";
 import { publicNav } from "@/config/nav";
 import { cn } from "@/lib/utils";
+
+const serviceDetailsMap: Record<
+  string,
+  { icon: React.ElementType; sub: string }
+> = {
+  "/services#talent": {
+    icon: GraduationCap,
+    sub: "Leadership & Executive Education",
+  },
+  "/services#hr": {
+    icon: Users,
+    sub: "Assessment & HR Strategy",
+  },
+  "/services#innovation": {
+    icon: Lightbulb,
+    sub: "Research & Innovation Programs",
+  },
+  "/services#creative": {
+    icon: Palette,
+    sub: "Branding & Content Production",
+  },
+};
 
 export function Navbar() {
   const pathname = usePathname();
@@ -54,16 +76,34 @@ export function Navbar() {
                       {item.label}
                       <ChevronDown className="h-3.5 w-3.5 opacity-60" />
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="center" className="w-56">
-                      {item.children.map((child) => (
-                        <DropdownMenuItem
-                          key={child.label}
-                          onClick={() => router.push(child.href)}
-                          className="cursor-pointer"
-                        >
-                          {child.label}
-                        </DropdownMenuItem>
-                      ))}
+                    <DropdownMenuContent align="center" className="w-72 p-2 space-y-1 bg-card/95 backdrop-blur-md border border-border/80 shadow-xl rounded-2xl">
+                      {item.children.map((child) => {
+                        const detail = serviceDetailsMap[child.href];
+                        const Icon = detail?.icon;
+                        return (
+                          <DropdownMenuItem
+                            key={child.label}
+                            onClick={() => router.push(child.href)}
+                            className="cursor-pointer flex items-start gap-3 p-2.5 rounded-xl hover:bg-primary/10 focus:bg-primary/10 transition-all group"
+                          >
+                            {Icon && (
+                              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                                <Icon className="h-4 w-4 text-primary" />
+                              </div>
+                            )}
+                            <div>
+                              <div className="text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                                {child.label}
+                              </div>
+                              {detail?.sub && (
+                                <div className="text-xs text-muted-foreground mt-0.5 leading-snug">
+                                  {detail.sub}
+                                </div>
+                              )}
+                            </div>
+                          </DropdownMenuItem>
+                        );
+                      })}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 );

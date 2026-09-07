@@ -93,10 +93,10 @@ export default function LoginPage() {
 
         <div className="relative grid grid-cols-2 gap-3">
           {[
-            { title: "Talent Development", sub: "Leadership & Certification" },
-            { title: "HR One Stop Solution", sub: "Assessment & Consulting" },
-            { title: "Innovation & Events", sub: "Research & Programs" },
-            { title: "Creative & Digital", sub: "Branding & Media" },
+            { title: "Talent Development", sub: "Leadership & Executive Education" },
+            { title: "HR One Stop Solution", sub: "Assessment & HR Strategy" },
+            { title: "Innovation & Events", sub: "Research & Innovation Programs" },
+            { title: "Creative & Digital", sub: "Branding & Content Production" },
           ].map((item) => (
             <div
               key={item.title}

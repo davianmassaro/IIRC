@@ -2,11 +2,33 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, GraduationCap, Users, Lightbulb, Palette } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { publicNav } from "@/config/nav";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+
+const serviceDetailsMap: Record<
+  string,
+  { icon: React.ElementType; sub: string }
+> = {
+  "/services#talent": {
+    icon: GraduationCap,
+    sub: "Leadership & Executive Education",
+  },
+  "/services#hr": {
+    icon: Users,
+    sub: "Assessment & HR Strategy",
+  },
+  "/services#innovation": {
+    icon: Lightbulb,
+    sub: "Research & Innovation Programs",
+  },
+  "/services#creative": {
+    icon: Palette,
+    sub: "Branding & Content Production",
+  },
+};
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -72,17 +94,35 @@ export function MobileNav() {
                       />
                     </button>
                     {isExpanded && (
-                      <div className="mt-1 ml-4 space-y-1">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            onClick={() => setOpen(false)}
-                            className="block px-4 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
+                      <div className="mt-1 ml-2 space-y-1">
+                        {item.children.map((child) => {
+                          const detail = serviceDetailsMap[child.href];
+                          const Icon = detail?.icon;
+                          return (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              onClick={() => setOpen(false)}
+                              className="flex items-start gap-3 px-3 py-2.5 rounded-xl text-sm hover:bg-muted transition-colors group"
+                            >
+                              {Icon && (
+                                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                                  <Icon className="h-3.5 w-3.5 text-primary" />
+                                </div>
+                              )}
+                              <div>
+                                <div className="font-semibold text-foreground text-sm leading-tight">
+                                  {child.label}
+                                </div>
+                                {detail?.sub && (
+                                  <div className="text-xs text-muted-foreground mt-0.5 leading-snug">
+                                    {detail.sub}
+                                  </div>
+                                )}
+                              </div>
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
