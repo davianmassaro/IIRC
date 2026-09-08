@@ -13,13 +13,13 @@ const advisors: Member[] = [
   {
     name: "Swasono Satyo",
     role: "CHRO Digital Technology Business at Sinar Mas Mining Group",
-    image: "",
+    image: "/images/team/Satyo.png",
     initials: "SS",
   },
   {
     name: "Yuni Lasti Faulinda",
     role: "Advisor",
-    image: "",
+    image: "/images/team/Yuni.png",
     initials: "YF",
   },
 ];
@@ -28,13 +28,13 @@ const boardOfDirectors: Member[] = [
   {
     name: "Rajesh Khana",
     role: "Director ITSB Corporation",
-    image: "",
+    image: "/images/team/Rajesh.png",
     initials: "RK",
   },
   {
     name: "Tina Melinda",
     role: "Head of ITSB Innovation & Research Centre",
-    image: "",
+    image: "/images/team/Tina.png",
     initials: "TM",
   },
 ];
@@ -43,13 +43,13 @@ const teamRow1: Member[] = [
   {
     name: "Zelfa Lola Maretha",
     role: "Business Development & Partnership Specialist",
-    image: "",
+    image: "/images/team/Lola.png",
     initials: "ZM",
   },
   {
     name: "Fadhil Muhammad Pradana",
     role: "Business Development Lead",
-    image: "",
+    image: "/images/team/Fadhil.png",
     initials: "FP",
   },
 ];
@@ -58,31 +58,31 @@ const teamRow2: Member[] = [
   {
     name: "Mochammad Fery Ardiansyah",
     role: "Creative Design & Editor Specialist",
-    image: "",
+    image: "/images/team/Fery.png",
     initials: "MA",
   },
   {
     name: "Dinda Ayu Anggita",
     role: "Business Development & Program Analyst",
-    image: "",
+    image: "/images/team/Dinda.png",
     initials: "DA",
   },
   {
     name: "Keishya Shalisa Julius",
     role: "Project Support Officer",
-    image: "",
+    image: "/images/team/Kei.png",
     initials: "KJ",
   },
   {
     name: "Faisal Azkar Ghifari",
     role: "Event & Project Management",
-    image: "",
+    image: "/images/team/Fai.png",
     initials: "FG",
   },
   {
     name: "Bernadette Andaru Narulita",
     role: "Event & Project Management",
-    image: "",
+    image: "/images/team/Andaru.png",
     initials: "BN",
   },
 ];
@@ -91,31 +91,31 @@ const teamRow3: Member[] = [
   {
     name: "Azizah",
     role: "Social Media Management",
-    image: "",
+    image: "/images/team/Zizah.png",
     initials: "AZ",
   },
   {
     name: "Inka Aprilia",
     role: "Project Support",
-    image: "",
+    image: "/images/team/Inka.png",
     initials: "IA",
   },
   {
     name: "Dela Putri Rahmawati",
     role: "Project Support",
-    image: "",
+    image: "/images/team/Dela.png",
     initials: "DR",
   },
   {
     name: "Namira Jonita",
     role: "Intern Project Support",
-    image: "",
+    image: "/images/team/Namira.png",
     initials: "NJ",
   },
   {
     name: "Davian Massaro",
     role: "Intern Project Support",
-    image: "",
+    image: "/images/team/Davian.png",
     initials: "DM",
   },
 ];
@@ -130,7 +130,7 @@ function MemberCard({ member }: { member: Member }) {
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-violet-900/30 text-purple-200">
