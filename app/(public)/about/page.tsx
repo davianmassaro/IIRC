@@ -77,71 +77,69 @@ export default function AboutPage() {
         <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-violet-600/15 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-0 w-80 h-80 rounded-full bg-indigo-600/10 blur-3xl" />
 
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <Badge className="bg-primary/10 text-primary border-primary/20 px-3.5 py-1 text-xs font-semibold tracking-wide uppercase" variant="outline">
-                About IIRC
-              </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                About <span className="iirc-gradient-text">IIRC</span>
-              </h1>
-              <p className="text-xl sm:text-2xl font-bold text-primary italic">
-                Innovating with Insight!
+        <div className="container mx-auto px-4 max-w-7xl relative z-10 space-y-12">
+          {/* Top Text Content */}
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <Badge className="bg-primary/10 text-primary border-primary/20 px-3.5 py-1 text-xs font-semibold tracking-wide uppercase" variant="outline">
+              About IIRC
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+              About <span className="iirc-gradient-text">IIRC</span>
+            </h1>
+            <p className="text-xl sm:text-2xl font-bold text-primary italic">
+              Innovating with Insight!
+            </p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-base sm:text-lg max-w-3xl mx-auto">
+              <p>
+                ITSB Innovation & Research Centre (IIRC) is an integrated learning, research, and
+                innovation ecosystem that{" "}
+                <span className="font-semibold text-foreground">
+                  empowers organizations to accelerate talent development, business transformation,
+                  and sustainable growth.
+                </span>
               </p>
-              <div className="space-y-4 text-muted-foreground leading-relaxed text-base sm:text-lg">
-                <p>
-                  ITSB Innovation & Research Centre (IIRC) is an integrated learning, research, and
-                  innovation ecosystem that{" "}
-                  <span className="font-semibold text-foreground">
-                    empowers organizations to accelerate talent development, business transformation,
-                    and sustainable growth.
-                  </span>
-                </p>
-                <p>
-                  As a strategic partner, IIRC bridges the gap between industry needs and professional
-                  development through research-driven solutions, executive learning programs,
-                  innovation initiatives, and organizational consulting services.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 gap-2 h-12 px-6 rounded-xl font-semibold shadow-lg shadow-primary/25">
-                  <Link href="/events">
-                    Explore Programs <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-border hover:bg-muted h-12 px-6 rounded-xl font-semibold">
-                  <Link href="/contact">
-                    Contact Us
-                  </Link>
-                </Button>
-              </div>
+              <p>
+                As a strategic partner, IIRC bridges the gap between industry needs and professional
+                development through research-driven solutions, executive learning programs,
+                innovation initiatives, and organizational consulting services.
+              </p>
             </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 gap-2 h-12 px-6 rounded-xl font-semibold shadow-lg shadow-primary/25">
+                <Link href="/events">
+                  Explore Programs <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-border hover:bg-muted h-12 px-6 rounded-xl font-semibold">
+                <Link href="/contact">
+                  Contact Us
+                </Link>
+              </Button>
+            </div>
+          </div>
 
-            {/* Right: Structure Image Card */}
-            <div className="lg:col-span-6">
-              <div className="relative group">
-                {/* Glow backdrop */}
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 opacity-30 blur-xl group-hover:opacity-50 transition duration-500" />
+          {/* Structure Image Card Directly Below Text */}
+          <div className="max-w-5xl mx-auto">
+            <div className="relative group">
+              {/* Glow backdrop */}
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 opacity-30 blur-xl group-hover:opacity-50 transition duration-500" />
 
-                {/* Container */}
-                <div className="relative rounded-3xl border border-primary/20 bg-card/80 backdrop-blur-xl p-3 sm:p-4 shadow-2xl overflow-hidden iirc-glow">
-                  <div className="relative w-full overflow-hidden rounded-2xl bg-slate-950/40 border border-white/10">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/StrukturIIRC.png"
-                      alt="Struktur Organisasi IIRC"
-                      className="w-full h-auto object-contain rounded-2xl transform transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="mt-3 px-2 flex items-center justify-between text-xs text-muted-foreground">
-                    <span className="font-semibold text-foreground/80 flex items-center gap-1.5">
-                      <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-                      Struktur Organisasi IIRC
-                    </span>
-                    <span className="opacity-75">ITSB Innovation & Research Centre</span>
-                  </div>
+              {/* Container */}
+              <div className="relative rounded-3xl border border-primary/20 bg-card/80 backdrop-blur-xl p-3 sm:p-5 shadow-2xl overflow-hidden iirc-glow">
+                <div className="relative w-full overflow-hidden rounded-2xl bg-slate-950/40 border border-white/10 flex justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/StrukturIIRC.png"
+                    alt="Struktur Organisasi IIRC"
+                    className="w-full max-h-[85vh] object-contain rounded-2xl transform transition-transform duration-500 group-hover:scale-[1.01]"
+                  />
+                </div>
+                <div className="mt-3 px-2 flex items-center justify-between text-xs text-muted-foreground">
+                  <span className="font-semibold text-foreground/80 flex items-center gap-1.5">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    Struktur Organisasi IIRC
+                  </span>
+                  <span className="opacity-75">ITSB Innovation & Research Centre</span>
                 </div>
               </div>
             </div>
