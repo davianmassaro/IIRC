@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight, Users, TrendingUp, Zap, Shield, Check, GraduationCap, Lightbulb, Palette } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
+import { OrganizationStructure } from "@/components/sections/OrganizationStructure";
 
 export const metadata: Metadata = {
   title: "About Us | IIRC",
@@ -117,35 +118,11 @@ export default function AboutPage() {
               </Button>
             </div>
           </div>
-
-          {/* Structure Image Card Directly Below Text */}
-          <div className="max-w-5xl mx-auto">
-            <div className="relative group">
-              {/* Glow backdrop */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 opacity-30 blur-xl group-hover:opacity-50 transition duration-500" />
-
-              {/* Container */}
-              <div className="relative rounded-3xl border border-primary/20 bg-card/80 backdrop-blur-xl p-3 sm:p-5 shadow-2xl overflow-hidden iirc-glow">
-                <div className="relative w-full overflow-hidden rounded-2xl bg-slate-950/40 border border-white/10 flex justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/StrukturIIRC.png"
-                    alt="Struktur Organisasi IIRC"
-                    className="w-full max-h-[85vh] object-contain rounded-2xl transform transition-transform duration-500 group-hover:scale-[1.01]"
-                  />
-                </div>
-                <div className="mt-3 px-2 flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="font-semibold text-foreground/80 flex items-center gap-1.5">
-                    <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    Struktur Organisasi IIRC
-                  </span>
-                  <span className="opacity-75">ITSB Innovation & Research Centre</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* ── Organization Structure ── */}
+      <OrganizationStructure />
 
       {/* ── Vision & Mission ── */}
       <section className="py-24 bg-background">
