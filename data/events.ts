@@ -119,5 +119,38 @@ export const featuredEvents: Event[] = [
     tags: ["leadership", "masterclass", "strategy", "executive"],
     speakers: [],
   },
+  {
+    id: "evt-004",
+    title: "Public Program: The AI-Powered Presentation for Professional Presentation",
+    slug: "public-program-ai-powered-presentation-professional",
+    description:
+      "Stop buat slide berjam-jam! Gunakan AI untuk presentasi lebih cepat, impactful, dan tingkatkan public speaking skill bersama AI Experts dari Sinarmas Group.\n\nDalam training ini, Anda akan belajar:\n- Memahami dasar AI dan teknik prompting\n- Mempelajari public speaking untuk tampil lebih percaya diri\n- Mendapatkan tips & tricks AI untuk membuat slide presentasi yang menarik\n- Mengembangkan storytelling agar presentasi lebih impactful",
+    shortDesc:
+      "Public Program: The AI-Powered Presentation for Professional Presentation by IIRC. Pelajari dasar AI, prompting, public speaking, dan storytelling presentasi.",
+    category: "Innovation & Events",
+    categories: ["Innovation & Events", "Talent Development", "Creative & Digital"],
+    type: "public",
+    status: "PUBLISHED",
+    thumbnail: "/images/events/aipower.jpg",
+    startDate: "2026-09-15",
+    endDate: "2026-09-15",
+    displayDate: "15 September 2026",
+    venue: "Sinarmas Land Plaza Thamrin, Lt. 39",
+    venueAddress: "Sinarmas Land Plaza Thamrin, Lt. 39, Jakarta Pusat",
+    isOnline: false,
+    quota: 50,
+    registeredCount: 0,
+    price: 0,
+    earlyBirdUntil: "-",
+    tags: ["AI", "presentation", "public speaking", "storytelling", "sinarmas"],
+    speakers: [
+      {
+        name: "AI Experts Team",
+        title: "AI Experts",
+        company: "Sinarmas Group",
+        bio: "Tim pakar AI dan komunikasi presentasi profesional Sinarmas Group.",
+      },
+    ],
+  },
 ];
 
