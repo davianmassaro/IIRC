@@ -9,7 +9,8 @@ export const featuredEvents: Event[] = [
       "Masterclass presentasi interaktif berbasis kecerdasan buatan (AI) yang membekali para pemimpin dan eksekutif dengan kemampuan membuat presentasi yang berdampak tinggi dan persuasif secara efisien.",
     shortDesc:
       "Masterclass presentasi interaktif berbasis AI untuk pemimpin dan eksekutif.",
-    category: "Leadership Development",
+    category: "Talent Development",
+    categories: ["Talent Development", "Innovation & Events", "Creative & Digital"],
     type: "public",
     status: "PUBLISHED",
     thumbnail: "/images/events/genius.jpg",
@@ -52,7 +53,8 @@ export const featuredEvents: Event[] = [
       "Program serial pengembangan kepemimpinan dan kapabilitas SDM yang fokus pada strategi menutup jurang keterampilan (skills gap) guna menyiapkan tenaga kerja yang future-ready.",
     shortDesc:
       "Program serial strategi penutupan skills gap untuk membangun future-ready workforce.",
-    category: "Leadership Development",
+    category: "Talent Development",
+    categories: ["Talent Development", "HR One Stop Solution", "Innovation & Events"],
     type: "public",
     status: "PUBLISHED",
     thumbnail: "/images/events/sync.jpg",
@@ -97,7 +99,8 @@ export const featuredEvents: Event[] = [
       "Bootcamp intensif HR Mastery untuk profesional HR yang ingin mendalami strategi pengelolaan talenta modern, kultur organisasi, dan kepemimpinan SDM tingkat lanjut.",
     shortDesc:
       "Bootcamp intensif pengelolaan talenta modern dan strategi kepemimpinan SDM.",
-    category: "Bootcamp",
+    category: "HR One Stop Solution",
+    categories: ["HR One Stop Solution", "Talent Development"],
     type: "public",
     status: "PUBLISHED",
     thumbnail: "/images/events/bootcamp.jpg",

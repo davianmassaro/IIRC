@@ -13,6 +13,7 @@ export interface Event {
   description: string;
   shortDesc?: string;
   category: string;
+  categories?: string[];
   type: string;
   status: string;
   thumbnail?: string;

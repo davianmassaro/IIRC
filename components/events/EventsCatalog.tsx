@@ -30,20 +30,22 @@ export function EventsCatalog({ initialEvents = [] }: EventsCatalogProps) {
       (event.shortDesc && event.shortDesc.toLowerCase().includes(search.toLowerCase())) ||
       (event.tags && event.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase())));
 
-    const catLower = event.category.toLowerCase();
+    const eventCats = event.categories
+      ? event.categories.map((c) => c.toLowerCase())
+      : [event.category.toLowerCase()];
     const selectedLower = selectedCategory.toLowerCase();
 
     const matchesCategory =
       selectedCategory === "Semua" ||
-      catLower === selectedLower ||
+      eventCats.includes(selectedLower) ||
       (selectedCategory === "Talent Development" &&
-        (catLower.includes("talent") || catLower.includes("leadership") || catLower.includes("executive"))) ||
+        eventCats.some((c) => c.includes("talent") || c.includes("leadership") || c.includes("executive"))) ||
       (selectedCategory === "HR One Stop Solution" &&
-        (catLower.includes("hr") || catLower.includes("bootcamp") || catLower.includes("esg") || catLower.includes("solution"))) ||
+        eventCats.some((c) => c.includes("hr") || c.includes("bootcamp") || c.includes("solution"))) ||
       (selectedCategory === "Innovation & Events" &&
-        (catLower.includes("innovation") || catLower.includes("ai") || catLower.includes("digital") || catLower.includes("event"))) ||
+        eventCats.some((c) => c.includes("innovation") || c.includes("ai") || c.includes("event"))) ||
       (selectedCategory === "Creative & Digital" &&
-        (catLower.includes("creative") || catLower.includes("digital") || catLower.includes("branding")));
+        eventCats.some((c) => c.includes("creative") || c.includes("digital") || c.includes("branding")));
 
     return matchesSearch && matchesCategory;
   });
