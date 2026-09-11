@@ -328,6 +328,19 @@ export async function getPublicEvents() {
   return data.map(mapBackendEvent);
 }
 
+export async function getPublicEventById(idOrSlug: string) {
+  const events = await getPublicEvents();
+  return events.find((e) => e.id === idOrSlug || e.slug === idOrSlug) || null;
+}
+
+export async function simulatePaymentPaid(transactionId: string) {
+  return iircRequest("/payment/simulate", {
+    method: "POST",
+    body: JSON.stringify({ transaction_id: transactionId }),
+    fallback: { status: true, message: "Payment simulated" },
+  });
+}
+
 
 
 export async function registerParticipant(payload: any) {

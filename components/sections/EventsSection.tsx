@@ -8,77 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EventCard } from "@/components/cards/EventCard";
 import { getPublicEvents } from "@/lib/iirc-api";
+import { featuredEvents } from "@/data/events";
 import { cn } from "@/lib/utils";
-
 import { siteConfig } from "@/config/site";
 
 // Nomor WA yang dihubungi saat client menekan tombol "Daftar"
 const WA_NUMBER = siteConfig.phone.replace(/[^0-9]/g, "");
-
-// Contoh program yang ditampilkan selama belum ada data dari API
-const MOCK_EVENTS: Event[] = [
-  {
-    id: "mock-1",
-    title: "Leadership Excellence Program 2025",
-    slug: "leadership-excellence-2025",
-    shortDesc: "Program intensif pengembangan kepemimpinan strategis untuk eksekutif dan manajer senior.",
-    description: "",
-    category: "Leadership Development",
-    type: "Offline",
-    status: "PUBLISHED",
-    startDate: "2025-09-15T09:00:00Z",
-    endDate: "2025-09-17T17:00:00Z",
-    venue: "Hotel Mulia, Jakarta",
-    isOnline: false,
-    quota: 40,
-    price: 8500000,
-    registeredCount: 28,
-    isPublished: true,
-    isFeatured: true,
-    tags: ["leadership", "executive"],
-  },
-  {
-    id: "mock-2",
-    title: "AI & Digital Transformation Bootcamp",
-    slug: "ai-digital-bootcamp-2025",
-    shortDesc: "Kuasai implementasi AI dan strategi transformasi digital untuk perusahaan Anda.",
-    description: "",
-    category: "AI & Digital Transformation",
-    type: "Hybrid",
-    status: "PUBLISHED",
-    startDate: "2025-10-05T08:00:00Z",
-    endDate: "2025-10-06T17:00:00Z",
-    venue: "IIRC Learning Center, Jakarta",
-    isOnline: true,
-    quota: 60,
-    price: 5500000,
-    earlyBirdPrice: 4500000,
-    earlyBirdUntil: "2025-09-20T23:59:00Z",
-    registeredCount: 45,
-    isPublished: true,
-    isFeatured: true,
-    tags: ["AI", "digital"],
-  },
-  {
-    id: "mock-3",
-    title: "ESG & Sustainability Masterclass",
-    slug: "esg-sustainability-masterclass",
-    shortDesc: "Memahami kerangka ESG dan implementasinya dalam strategi bisnis perusahaan modern.",
-    description: "",
-    category: "ESG & Sustainability",
-    type: "Online",
-    status: "PUBLISHED",
-    startDate: "2025-11-10T09:00:00Z",
-    endDate: "2025-11-10T17:00:00Z",
-    isOnline: true,
-    quota: 100,
-    price: 0,
-    registeredCount: 32,
-    isPublished: true,
-    isFeatured: false,
-    tags: ["ESG", "sustainability"],
-  },
-];
 
 export function EventsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -203,8 +138,8 @@ export function EventsSection() {
     );
   }
 
-  // Gunakan mock events sebagai fallback agar section tidak pernah kosong
-  const displayEvents = events.length > 0 ? events : MOCK_EVENTS;
+  // Gunakan featuredEvents sebagai fallback agar section tidak pernah kosong
+  const displayEvents = events.length > 0 ? events : featuredEvents;
 
   return (
     <section className="overflow-hidden py-24 bg-background" id="events-programs">

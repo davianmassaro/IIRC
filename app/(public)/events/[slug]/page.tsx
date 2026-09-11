@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
-  Calendar, MapPin, Users, ArrowLeft, Share2,
+  Calendar, MapPin, ArrowLeft, Share2,
   CheckCircle2, User,
 } from "lucide-react";
 import { featuredEvents } from "@/data/events";
@@ -40,26 +40,13 @@ function formatDate(dateStr: string) {
   });
 }
 
-function formatPrice(price: number) {
-  if (price === 0) return "Gratis";
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-  }).format(price);
-}
-
 export default async function EventDetailPage({ params }: Props) {
   const { slug } = await params;
   const event = await getPublicEventById(slug);
 
   if (!event) notFound();
 
-  const fillPercent = event.registeredCount
-    ? Math.round((event.registeredCount / event.quota) * 100)
-    : 0;
-  const isSoldOut = fillPercent >= 100;
-  const isAlmostFull = fillPercent >= 80 && !isSoldOut;
+  const isSoldOut = event.registeredCount && event.quota ? event.registeredCount >= event.quota : false;
 
   return (
     <>
@@ -110,10 +97,6 @@ export default async function EventDetailPage({ params }: Props) {
                       {event.venue}
                     </div>
                   )}
-                  <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4" />
-                    {event.registeredCount ?? 0}/{event.quota} peserta
-                  </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {event.tags.map((tag) => (
@@ -188,25 +171,6 @@ export default async function EventDetailPage({ params }: Props) {
             <div className="lg:col-span-1">
               <div className="sticky top-24">
                 <div className="iirc-glass-card rounded-2xl p-6 space-y-5 shadow-xl">
-                  {/* Price */}
-                  <div>
-                    {event.earlyBirdPrice && (
-                      <div className="text-sm text-muted-foreground line-through">
-                        {formatPrice(event.price)}
-                      </div>
-                    )}
-                    <div className="text-3xl font-bold text-primary">
-                      {formatPrice(event.earlyBirdPrice ?? event.price)}
-                    </div>
-                    {event.earlyBirdPrice && event.earlyBirdUntil && (
-                      <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20 mt-1">
-                        Early Bird hingga {new Date(event.earlyBirdUntil).toLocaleDateString("id-ID")}
-                      </Badge>
-                    )}
-                  </div>
-
-                  <Separator />
-
                   {/* Details */}
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
@@ -225,34 +189,7 @@ export default async function EventDetailPage({ params }: Props) {
                         <span className="font-medium text-right max-w-45">{event.venue}</span>
                       </div>
                     )}
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground flex items-center gap-2">
-                        <Users className="h-4 w-4" />Kuota
-                      </span>
-                      <span className="font-medium">{event.quota} peserta</span>
-                    </div>
                   </div>
-
-                  {/* Fill bar */}
-                  {event.registeredCount !== undefined && (
-                    <div className="space-y-1.5">
-                      <div className="flex justify-between text-xs text-muted-foreground">
-                        <span>{event.registeredCount} terdaftar</span>
-                        <span>{event.quota - event.registeredCount} tersisa</span>
-                      </div>
-                      <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full ${
-                            isSoldOut ? "bg-destructive" : isAlmostFull ? "bg-orange-500" : "bg-primary"
-                          }`}
-                          style={{ width: `${Math.min(fillPercent, 100)}%` }}
-                        />
-                      </div>
-                      {isAlmostFull && !isSoldOut && (
-                        <p className="text-xs text-orange-500 font-medium">Segera daftar — hampir penuh!</p>
-                      )}
-                    </div>
-                  )}
 
                   <Separator />
 
@@ -260,7 +197,7 @@ export default async function EventDetailPage({ params }: Props) {
                   <RegisterButton
                     eventId={event.id}
                     eventTitle={event.title}
-                    price={event.earlyBirdPrice ?? event.price}
+                    price={0}
                     slug={event.slug}
                     isSoldOut={isSoldOut}
                   />

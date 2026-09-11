@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Event } from "@/types";
@@ -22,15 +22,6 @@ const categoryColors: Record<string, string> = {
   "Public Program": "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
 };
 
-function formatPrice(price: number): string {
-  if (price === 0) return "Gratis";
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-  }).format(price);
-}
-
 function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("id-ID", {
     day: "numeric",
@@ -43,7 +34,6 @@ export function EventCard({ event, variant = "default", waNumber }: EventCardPro
   const fillPercent = event.registeredCount
     ? Math.round((event.registeredCount / event.quota) * 100)
     : 0;
-  const isAlmostFull = fillPercent >= 80;
   const isSoldOut = fillPercent >= 100;
   const badgeClass =
     categoryColors[event.category] ||
@@ -160,60 +150,14 @@ export function EventCard({ event, variant = "default", waNumber }: EventCardPro
                 <span className="truncate">{event.venue}</span>
               </div>
             )}
-            {event.registeredCount !== undefined && (
-              <div className="flex items-center gap-2">
-                <Users className="h-3.5 w-3.5 shrink-0" />
-                <span>
-                  {event.registeredCount}/{event.quota} peserta
-                  {isAlmostFull && !isSoldOut && (
-                    <span className="ml-1 text-orange-500 font-medium">
-                      (hampir penuh)
-                    </span>
-                  )}
-                </span>
-              </div>
-            )}
           </div>
-
-          {/* Progress bar */}
-          {event.registeredCount !== undefined && (
-            <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-              <div
-                className={cn(
-                  "h-full rounded-full transition-all",
-                  isSoldOut
-                    ? "bg-destructive"
-                    : isAlmostFull
-                    ? "bg-orange-500"
-                    : "bg-primary"
-                )}
-                style={{ width: `${Math.min(fillPercent, 100)}%` }}
-              />
-            </div>
-          )}
         </div>
 
         {/* Footer */}
-        <div className="mt-4 pt-4 border-t border-border flex items-center justify-between gap-3">
-          <div>
-            {event.earlyBirdPrice && (
-              <div className="text-xs text-muted-foreground line-through">
-                {formatPrice(event.price)}
-              </div>
-            )}
-            <div className="font-bold text-primary text-lg">
-              {formatPrice(event.earlyBirdPrice ?? event.price)}
-            </div>
-            {event.earlyBirdPrice && (
-              <div className="text-[10px] text-green-600 dark:text-green-400 font-medium">
-                Early bird harga
-              </div>
-            )}
-          </div>
-
+        <div className="mt-4 pt-4 border-t border-border flex items-center justify-end">
           <Button
             size="sm"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground w-full"
             disabled={isSoldOut}
             asChild={!isSoldOut}
           >
