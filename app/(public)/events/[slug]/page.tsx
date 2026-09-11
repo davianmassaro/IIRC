@@ -31,13 +31,24 @@ export async function generateStaticParams() {
   return [];
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("id-ID", {
+function getEventDateDisplay(event: { displayDate?: string; startDate: string; endDate: string }) {
+  if (event.displayDate) return event.displayDate;
+  const start = new Date(event.startDate).toLocaleDateString("id-ID", {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
   });
+  if (event.endDate && event.endDate !== event.startDate) {
+    const end = new Date(event.endDate).toLocaleDateString("id-ID", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    return `${start} – ${end}`;
+  }
+  return start;
 }
 
 export default async function EventDetailPage({ params }: Props) {
@@ -88,8 +99,7 @@ export default async function EventDetailPage({ params }: Props) {
                 <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
-                    {formatDate(event.startDate)}
-                    {event.endDate !== event.startDate && ` – ${formatDate(event.endDate)}`}
+                    {getEventDateDisplay(event)}
                   </div>
                   {event.venue && (
                     <div className="flex items-center gap-2">
@@ -178,7 +188,7 @@ export default async function EventDetailPage({ params }: Props) {
                         <Calendar className="h-4 w-4" />Tanggal
                       </span>
                       <span className="font-medium text-right max-w-45">
-                        {formatDate(event.startDate)}
+                        {getEventDateDisplay(event)}
                       </span>
                     </div>
                     {event.venue && (

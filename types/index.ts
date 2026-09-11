@@ -19,6 +19,7 @@ export interface Event {
   thumbnail?: string;
   startDate: string;
   endDate: string;
+  displayDate?: string;
   venue?: string;
   venueAddress?: string;
   isOnline?: boolean;

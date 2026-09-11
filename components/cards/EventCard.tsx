@@ -22,12 +22,22 @@ const categoryColors: Record<string, string> = {
   "Public Program": "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
 };
 
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("id-ID", {
+function getEventDateDisplay(event: Event): string {
+  if (event.displayDate) return event.displayDate;
+  const start = new Date(event.startDate).toLocaleDateString("id-ID", {
     day: "numeric",
     month: "short",
     year: "numeric",
   });
+  if (event.endDate && event.endDate !== event.startDate) {
+    const end = new Date(event.endDate).toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+    return `${start} – ${end}`;
+  }
+  return start;
 }
 
 export function EventCard({ event, variant = "default", waNumber }: EventCardProps) {
@@ -59,7 +69,7 @@ export function EventCard({ event, variant = "default", waNumber }: EventCardPro
             {event.title}
           </div>
           <div className="text-xs text-muted-foreground mt-0.5">
-            {formatDate(event.startDate)}
+            {getEventDateDisplay(event)}
           </div>
         </div>
         <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
@@ -138,11 +148,7 @@ export function EventCard({ event, variant = "default", waNumber }: EventCardPro
           <div className="space-y-1.5 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
               <Calendar className="h-3.5 w-3.5 shrink-0" />
-              <span>
-                {formatDate(event.startDate)}
-                {event.endDate !== event.startDate &&
-                  ` – ${formatDate(event.endDate)}`}
-              </span>
+              <span>{getEventDateDisplay(event)}</span>
             </div>
             {event.venue && (
               <div className="flex items-center gap-2">
