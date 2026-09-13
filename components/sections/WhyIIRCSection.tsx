@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import {
   Cpu,
   Users,
@@ -13,7 +13,7 @@ import {
   Rocket,
   Globe,
   ChevronRight,
-  ChevronLeft,
+  // ChevronLeft,
   Sparkles,
 } from "lucide-react";
 
@@ -95,6 +95,7 @@ const dummyTestimonials = [
 ];
 
 export function WhyIIRCSection() {
+  /*
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -117,6 +118,7 @@ export function WhyIIRCSection() {
   }, [paused]);
 
   const current = dummyTestimonials[activeTestimonial];
+  */
 
   return (
     <section className="py-16 sm:py-24 bg-background overflow-hidden">
@@ -164,19 +166,18 @@ export function WhyIIRCSection() {
                 </p>
               </div>
 
-              {/* Clean Testimonial Box with Glass Border */}
+              {/* Clean Testimonial Box with Glass Border (Temporarily Hidden) */}
+              {/*
               <div
                 className="relative mt-2 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/50 dark:border-white/20 p-5 sm:p-6 shadow-md hover:shadow-lg transition-all"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  {/* Numerical Rating Badge */}
                   <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-extrabold text-xs px-3 py-1 rounded-full border border-white/40 dark:border-white/20">
                     {current.rating}
                   </div>
 
-                  {/* Prev / Next Navigation Arrows */}
                   <div className="flex items-center gap-1.5">
                     <button
                       onClick={prevTestimonial}
@@ -195,12 +196,10 @@ export function WhyIIRCSection() {
                   </div>
                 </div>
 
-                {/* Quote Text */}
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 italic leading-relaxed">
                   &ldquo;{current.quote}&rdquo;
                 </p>
 
-                {/* Footer: Name, Title & Pagination Dots */}
                 <div className="mt-4 pt-3 border-t border-slate-200/60 dark:border-white/10 flex items-center justify-between">
                   <div>
                     <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">
@@ -211,7 +210,6 @@ export function WhyIIRCSection() {
                     </p>
                   </div>
                   
-                  {/* Dots */}
                   <div className="flex gap-1.5">
                     {dummyTestimonials.map((_, i) => (
                       <button
@@ -228,6 +226,7 @@ export function WhyIIRCSection() {
                   </div>
                 </div>
               </div>
+              */}
 
             </div>
 
