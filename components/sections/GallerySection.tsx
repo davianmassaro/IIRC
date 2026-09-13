@@ -26,17 +26,17 @@ export function GallerySection() {
   const getTileClass = (index: number) => {
     switch (index % 5) {
       case 0:
-        return "md:col-span-2 md:row-span-2 min-h-[280px] md:min-h-[460px]";
+        return "h-[240px] md:h-auto md:col-span-2 md:row-span-2 md:min-h-[460px]";
       case 1:
-        return "md:col-span-1 md:row-span-1 min-h-[220px]";
+        return "h-[220px] md:h-auto md:col-span-1 md:row-span-1 md:min-h-[220px]";
       case 2:
-        return "md:col-span-1 md:row-span-1 min-h-[220px]";
+        return "h-[220px] md:h-auto md:col-span-1 md:row-span-1 md:min-h-[220px]";
       case 3:
-        return "md:col-span-2 md:row-span-1 min-h-[220px]";
+        return "h-[220px] md:h-auto md:col-span-2 md:row-span-1 md:min-h-[220px]";
       case 4:
-        return "md:col-span-1 md:row-span-1 min-h-[220px]";
+        return "h-[220px] md:h-auto md:col-span-1 md:row-span-1 md:min-h-[220px]";
       default:
-        return "md:col-span-1 md:row-span-1 min-h-[220px]";
+        return "h-[220px] md:h-auto md:col-span-1 md:row-span-1 md:min-h-[220px]";
     }
   };
 
@@ -72,7 +72,7 @@ export function GallerySection() {
         </div>
 
         {/* Cohesive 5-item Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[220px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[220px]">
           {itemsToRender.map((item, index) => (
             <div
               key={item.id}
