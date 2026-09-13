@@ -72,14 +72,14 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-24 iirc-mesh-bg relative overflow-hidden">
+    <section className="py-12 sm:py-24 iirc-mesh-bg relative overflow-hidden">
       {/* Decorative ambient background glows */}
       <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-violet-600/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-blue-600/10 blur-3xl" />
 
       <div className="container mx-auto px-4 max-w-7xl">
         {/* ── Header ── */}
-        <div className="mb-16 space-y-4 text-center">
+        <div className="mb-8 sm:mb-16 space-y-3 sm:space-y-4 text-center">
           <Badge
             variant="secondary"
             className="border-primary/20 bg-primary/10 text-primary gap-1.5"
@@ -87,11 +87,11 @@ export function ServicesSection() {
             <Sparkles className="h-3 w-3" />
             Our Ecosystem
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             Four Services.{" "}
             <span className="iirc-gradient-text">One Integrated Advantage.</span>
           </h2>
-          <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground text-sm sm:text-base">
+          <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground text-xs sm:text-base">
             Empowering people, accelerating innovation, and driving impact through a connected
             business ecosystem.
           </p>
@@ -115,7 +115,7 @@ export function ServicesSection() {
           </div>
 
           {/* Grid of 4 Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
             {services.map((item) => {
               const Icon = item.icon;
               const isRight = item.numPosition === "right";
@@ -124,38 +124,38 @@ export function ServicesSection() {
                 <div
                   key={item.id}
                   id={item.id}
-                  className={`group relative bg-gradient-to-br ${item.gradient} text-white p-7 sm:p-9 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] ${item.borderRadius}`}
+                  className={`group relative bg-gradient-to-br ${item.gradient} text-white p-5 sm:p-9 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] rounded-3xl lg:${item.borderRadius}`}
                 >
                   {/* Top row with Number & Icon Badge */}
                   <div
-                    className={`flex items-center justify-between mb-5 ${
+                    className={`flex items-center justify-between mb-3 sm:mb-5 ${
                       isRight ? "flex-row-reverse" : "flex-row"
                     }`}
                   >
-                    <span className="text-4xl sm:text-5xl font-black text-white leading-none tracking-tight">
+                    <span className="text-3xl sm:text-5xl font-black text-white leading-none tracking-tight">
                       {item.number}
                     </span>
-                    <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
-                      <Icon className="h-5 w-5 text-white" />
+                    <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xl sm:text-2xl font-bold leading-tight mb-2 text-white">
+                  <h3 className="text-lg sm:text-2xl font-bold leading-tight mb-1.5 sm:mb-2 text-white">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed mb-5">
+                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed mb-3 sm:mb-5">
                     {item.description}
                   </p>
 
                   {/* Feature Bullets */}
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {item.features.map((f) => (
                       <li
                         key={f}
-                        className="flex items-center gap-2.5 text-xs sm:text-sm text-white/95 font-medium"
+                        className="flex items-center gap-2 text-xs sm:text-sm text-white/95 font-medium"
                       >
-                        <span className="w-2 h-2 rounded-full bg-white shrink-0 shadow-sm" />
+                        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white shrink-0 shadow-sm" />
                         {f}
                       </li>
                     ))}
@@ -166,15 +166,15 @@ export function ServicesSection() {
           </div>
 
           {/* Mobile Center Hub (< lg) */}
-          <div className="flex lg:hidden justify-center mt-10">
-            <div className="w-48 h-48 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center p-5 text-center border-4 border-primary/20">
+          <div className="flex lg:hidden justify-center mt-6">
+            <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center p-3 text-center border-4 border-primary/20">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/logo.png"
                 alt="IIRC Logo"
-                className="h-12 w-auto object-contain mb-1"
+                className="h-8 sm:h-12 w-auto object-contain mb-0.5"
               />
-              <div className="text-xs font-black tracking-widest text-[#2e1065] uppercase italic border-t border-purple-200 pt-1 mt-1">
+              <div className="text-[10px] sm:text-xs font-black tracking-widest text-[#2e1065] uppercase italic border-t border-purple-200 pt-0.5 mt-0.5">
                 4 SERVICES
               </div>
             </div>

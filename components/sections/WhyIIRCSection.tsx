@@ -121,45 +121,45 @@ export function WhyIIRCSection() {
   */
 
   return (
-    <section className="py-16 sm:py-24 bg-background overflow-hidden">
-      <div className="container mx-auto max-w-7xl px-4">
+    <section className="py-10 sm:py-24 bg-background overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-3 sm:px-4">
         {/* Main Card Wrapper with Glass Border */}
-        <div className="rounded-3xl bg-white/40 dark:bg-card/70 backdrop-blur-xl border border-white/50 dark:border-white/20 p-6 sm:p-8 lg:p-10 shadow-2xl dark:shadow-primary/10 relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl bg-white/40 dark:bg-card/70 backdrop-blur-xl border border-white/50 dark:border-white/20 p-4 sm:p-8 lg:p-10 shadow-2xl dark:shadow-primary/10 relative overflow-hidden">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             
             {/* Left Column (Logo, Title, Description, Testimonial Box) */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-6">
               
               {/* Brand Header */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/logo-iirc.png"
                     alt="IIRC Logo"
-                    className="h-10 w-auto object-contain"
+                    className="h-8 sm:h-10 w-auto object-contain"
                   />
                 </div>
 
                 {/* Big Title */}
                 <div>
-                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-none">
+                  <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-none">
                     WHY
                   </h2>
-                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-purple-700 dark:text-purple-400 leading-tight">
+                  <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-purple-700 dark:text-purple-400 leading-tight">
                     CHOOSE IIRC
                   </h2>
                 </div>
 
                 {/* Tagline */}
-                <div className="flex items-center gap-1.5 text-purple-700 dark:text-purple-400 font-bold text-sm sm:text-base">
-                  <Sparkles className="h-4 w-4 fill-purple-600 text-purple-600 dark:fill-purple-400 dark:text-purple-400 shrink-0" />
+                <div className="flex items-center gap-1.5 text-purple-700 dark:text-purple-400 font-bold text-xs sm:text-base">
+                  <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-purple-600 text-purple-600 dark:fill-purple-400 dark:text-purple-400 shrink-0" />
                   <span>The Partner for Impactful Transformation</span>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                   We combine innovation, expertise, and execution to deliver
                   learning and solutions that create real value and sustainable
                   impact for your organization.
@@ -231,28 +231,28 @@ export function WhyIIRCSection() {
             </div>
 
             {/* Right Column (Tagline + 5 Rows + Impact Column) */}
-            <div className="lg:col-span-7 flex flex-col space-y-4">
+            <div className="lg:col-span-7 flex flex-col space-y-3 sm:space-y-4">
               
               {/* Top Banner Tagline */}
-              <div className="flex items-center justify-center gap-2 text-center text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 pb-1">
+              <div className="flex items-center justify-center gap-2 text-center text-xs sm:text-base font-bold text-slate-900 dark:text-slate-100 pb-1">
                 <div className="h-px bg-purple-300/60 dark:bg-white/20 flex-1 hidden sm:block" />
-                <div className="flex items-center gap-2 px-2">
-                  <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                <div className="flex items-center gap-1.5 sm:gap-2 px-1">
+                  <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-purple-600 dark:text-purple-400 shrink-0" />
                   <span>We go beyond training. We deliver transformation.</span>
-                  <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                  <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-purple-600 dark:text-purple-400 shrink-0" />
                 </div>
                 <div className="h-px bg-purple-300/60 dark:bg-white/20 flex-1 hidden sm:block" />
               </div>
 
-              {/* Impact Column Header Pill */}
-              <div className="flex justify-end pr-1">
+              {/* Impact Column Header Pill (Desktop only) */}
+              <div className="hidden md:flex justify-end pr-1">
                 <div className="bg-purple-800 dark:bg-purple-700 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md border border-white/20">
                   The Impact for You
                 </div>
               </div>
 
               {/* 5 Feature Rows */}
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 {features.map(
                   ({
                     number,
@@ -264,37 +264,49 @@ export function WhyIIRCSection() {
                   }) => (
                     <div
                       key={number}
-                      className="flex flex-col md:flex-row items-stretch md:items-center gap-2.5 sm:gap-3"
+                      className="flex flex-col md:flex-row items-stretch md:items-center gap-2 sm:gap-3"
                     >
-                      {/* Row Left: Number Badge */}
-                      <div className="flex items-center gap-3 shrink-0">
-                        <div className="bg-purple-900 dark:bg-purple-950 text-white font-black text-sm sm:text-base w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center shadow-md border border-white/20">
+                      {/* Row Left: Number Badge & Main Feature Box wrapper */}
+                      <div className="flex items-start md:items-center gap-2 sm:gap-3 flex-1">
+                        <div className="bg-purple-900 dark:bg-purple-950 text-white font-black text-xs sm:text-base w-8 h-8 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md border border-white/20 shrink-0 mt-1 md:mt-0">
                           {number}
                         </div>
+
+                        {/* Main Feature Box */}
+                        <div className="flex-1 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-white/50 dark:border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm hover:shadow-md hover:border-purple-400/50 transition-all flex flex-col sm:flex-row items-start gap-2 sm:gap-3">
+                          <div className="flex items-center gap-2 sm:block">
+                            <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl shrink-0 border border-white/40 dark:border-white/10">
+                              <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
+                            </div>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-xs sm:text-base leading-snug sm:hidden">
+                              {title}
+                            </h3>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-xs sm:text-base leading-snug hidden sm:block">
+                              {title}
+                            </h3>
+                            <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-0.5 sm:mt-1">
+                              {description}
+                            </p>
+                            {/* Mobile inline Impact */}
+                            <div className="md:hidden mt-2 pt-1.5 border-t border-slate-200/60 dark:border-white/10 flex items-center gap-2">
+                              <span className="text-[9px] font-extrabold bg-purple-700 text-white px-2 py-0.5 rounded-full shrink-0">Impact</span>
+                              <p className="text-[10px] text-purple-900 dark:text-purple-200 font-semibold leading-tight">
+                                {impact}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
-                      {/* Main Feature Box with Glass Border */}
-                      <div className="flex-1 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-white/50 dark:border-white/20 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-purple-400/50 transition-all flex items-start gap-3">
-                        <div className="bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 p-2.5 rounded-xl shrink-0 mt-0.5 border border-white/40 dark:border-white/10">
-                          <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">
-                            {title}
-                          </h3>
-                          <p className="text-xs sm:text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
-                            {description}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Chevron Divider */}
+                      {/* Chevron Divider (Desktop only) */}
                       <div className="hidden md:flex items-center justify-center shrink-0">
                         <ChevronRight className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                       </div>
 
-                      {/* Impact Box with Glass Border */}
-                      <div className="w-full md:w-5/12 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-white/50 dark:border-white/20 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-purple-400/50 transition-all flex items-center gap-3">
+                      {/* Impact Box with Glass Border (Desktop only) */}
+                      <div className="hidden md:flex w-full md:w-5/12 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-white/50 dark:border-white/20 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-purple-400/50 transition-all items-center gap-3">
                         <div className="bg-purple-700 text-white p-2 rounded-full shrink-0 flex items-center justify-center h-8 w-8 shadow-xs border border-white/20">
                           <ImpactIcon className="h-4 w-4" />
                         </div>
@@ -308,14 +320,14 @@ export function WhyIIRCSection() {
               </div>
 
               {/* Bottom Banner */}
-              <div className="mt-4 rounded-full bg-gradient-to-r from-purple-800 via-indigo-900 to-purple-900 text-white py-3 px-6 text-center font-semibold text-xs sm:text-sm tracking-wide shadow-lg border border-white/20 flex items-center justify-center gap-2">
-                <Sparkles className="h-4 w-4 text-purple-300 shrink-0" />
+              <div className="mt-3 sm:mt-4 rounded-full bg-gradient-to-r from-purple-800 via-indigo-900 to-purple-900 text-white py-2.5 sm:py-3 px-4 sm:px-6 text-center font-semibold text-[10px] sm:text-sm tracking-wide shadow-lg border border-white/20 flex items-center justify-center gap-1.5 sm:gap-2">
+                <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-purple-300 shrink-0" />
                 <span>
                   <strong className="font-extrabold text-white">People</strong> First.{" "}
                   <strong className="font-extrabold text-white">Impact</strong> Driven.{" "}
                   <strong className="font-extrabold text-white">Transformation</strong> Together.
                 </span>
-                <Sparkles className="h-4 w-4 text-purple-300 shrink-0" />
+                <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-purple-300 shrink-0" />
               </div>
 
             </div>
