@@ -15,7 +15,8 @@
     "deploy:vinext": "vinext-cloudflare deploy --config dist/server/wrangler.json --experimental-warm-cdn-cache",
     "wix:dev": "wix dev",
     "wix:build": "vinext build",
-    "wix:publish": "wix publish"
+    "wix:preview": "wix preview",
+    "wix:publish": "wix release"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",
