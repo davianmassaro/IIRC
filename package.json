@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",
-    "seed": "tsx prisma/seed.ts"
+    "seed": "tsx prisma/seed.ts",
+    "dev:vinext": "vinext dev --port 3001",
+    "build:vinext": "vinext build",
+    "start:vinext": "wrangler dev --config dist/server/wrangler.json",
+    "deploy:vinext": "vinext-cloudflare deploy --config dist/server/wrangler.json --experimental-warm-cdn-cache"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",
@@ -19,6 +23,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/pg": "^8.20.0",
     "@types/qrcode": "^1.5.6",
+    "@vinext/cloudflare": "^1.0.0-beta.7",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -33,25 +38,31 @@
     "pg": "^8.22.0",
     "prisma": "^7.8.0",
     "qrcode": "^1.5.4",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "react-qr-scanner": "^1.0.0-alpha.11",
+    "react-server-dom-webpack": "^19.3.0",
     "recharts": "^3.9.0",
     "shadcn": "^4.12.0",
     "tailwind-merge": "^3.6.0",
     "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.54.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-rsc": "^0.5.34",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vinext": "^1.0.0-beta.9",
-    "vite": "^8.3.0"
-  }
+    "vite": "^8.3.0",
+    "wrangler": "^4.131.1"
+  },
+  "type": "module"
 }

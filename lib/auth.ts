@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import { adminLogin, normalizeAdminRole } from "@/lib/iirc-api";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  trustHost: true,
   session: { strategy: "jwt" },
   providers: [
     Credentials({
