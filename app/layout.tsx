@@ -4,7 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
-import { auth } from "@/lib/auth";
 import { SessionProvider } from "@/providers/SessionProvider";
 import { AnimatedBackground } from "@/components/layout/AnimatedBackground";
 
@@ -50,19 +49,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
-
   return (
     <html lang="id" suppressHydrationWarning className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
         <AnimatedBackground />
         <ThemeProvider defaultTheme="light" enableSystem>
-          <SessionProvider session={session}>
+          <SessionProvider session={null}>
             <TooltipProvider>{children}</TooltipProvider>
           </SessionProvider>
         </ThemeProvider>
