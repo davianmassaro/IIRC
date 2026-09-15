@@ -2,6 +2,9 @@
   "projectType": "Site",
   "siteId": "3e9ed475-718f-408d-93de-ace71506ea0f",
   "site": {
-    "outputDirectory": "./dist"
+    "outputDirectory": {
+      "client": "./.open-next/assets",
+      "server": "./.open-next"
+    }
   }
 }
