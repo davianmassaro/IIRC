@@ -10,4 +10,7 @@ backup-assets/
 .open-next/
 .vinext/
 .wix/
+.wix/debug.log
 .wrangler/
+node_modules/
+*.log
