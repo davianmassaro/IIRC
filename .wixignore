@@ -1,0 +1,13 @@
+# Wix CLI upload ignore rules
+# Prevents large binary video assets from causing ECONNRESET timeout during npx wix release
+
+*.mp4
+*.MOV
+VideoProfil.mp4
+public/videos/
+dist/client/videos/
+backup-assets/
+.open-next/
+.vinext/
+.wix/
+.wrangler/
