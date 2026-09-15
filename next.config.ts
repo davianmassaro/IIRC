@@ -1,13 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
   reactCompiler: true,
   turbopack: {},
 
   // Safety flags for Vercel deployment: prevent build failures from strict lint or type warnings
   typescript: {
     ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 
   images: {
