@@ -14,8 +14,8 @@ const services = [
     numPosition: "left",
     description: "Unlock human potential through world-class learning programs.",
     features: [
-      "Leadership Development",
-      "Executive Education",
+      "In House Training",
+      "Public Training",
       "Professional Certification",
       "Technical & Functional Training",
     ],

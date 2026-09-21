@@ -22,7 +22,7 @@ const values = [
 const pillars = [
   {
     number: "1", color: "violet", icon: GraduationCap, title: "Talent Development Center",
-    features: ["Leadership Development", "Executive Education", "Professional Certification", "Technical & Functional Training"],
+    features: ["In House Training", "Public Training", "Professional Certification", "Technical & Functional Training"],
   },
   {
     number: "2", color: "blue", icon: Users, title: "HR One Stop Solution",

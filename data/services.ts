@@ -13,12 +13,12 @@ export const services: Service[] = [
     id: "talent",
     title: "Talent Development Center",
     description:
-      "Unlock human potential through world-class learning programs, leadership development, executive education, and professional certification.",
+      "Unlock human potential through world-class learning programs, in house training, public training, and professional certification.",
     icon: "GraduationCap",
     color: "lilac",
     features: [
-      "Leadership Development",
-      "Executive Education",
+      "In House Training",
+      "Public Training",
       "Professional Certification",
       "Technical & Functional Training",
     ],
