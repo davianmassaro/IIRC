@@ -27,19 +27,16 @@ export function TrainersSection() {
       </div>
 
       {/* Fluid Full-Width Flex 100% Trainer Image (Edge-to-Edge, Universal for all screens) */}
-      {/* Temporarily hidden while image is under revision */}
-      {/*
       <div className="w-full mt-8 flex items-center justify-center overflow-hidden">
         <div className="relative w-full flex justify-center items-center">
           <img
-            src="/images/trainers.png"
+            src="/images/trainer-home.webp"
             alt="IIRC Faculty & Trainers"
             className="w-full h-auto object-cover min-w-full"
           />
           <div className="absolute inset-x-0 bottom-0 h-24 sm:h-36 lg:h-56 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
         </div>
       </div>
-      */}
     </section>
   );
 }
